@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Junho Lee</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f5f5f7;
+  --bg-surface: #f5f5f7;
+  --text: #1d1d1f;
+  --text-body: rgba(0, 0, 0, 0.8);
+  --text-muted: rgba(0, 0, 0, 0.56);
+  --text-heading: #1d1d1f;
+  --accent: #0071e3;
+  --link: #0066cc;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
+  --shadow-elev: rgba(0, 0, 0, 0.22) 3px 5px 30px 0px;
+}
+
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+
+body {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 17px;
+  line-height: 1.47;
+  letter-spacing: -0.022em;
+  color: var(--text);
+  background: var(--bg);
+  font-feature-settings: "kern", "liga", "calt";
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 96px 32px 80px;
+}
+
+/* Hero */
+.hero {
+  margin-bottom: 96px;
+}
+.hero h1 {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', sans-serif;
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  color: var(--text-heading);
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 21px;
+  color: var(--text-muted);
+  max-width: 640px;
+  letter-spacing: -0.016em;
+  line-height: 1.4;
+}
+
+/* Section */
+section { margin-bottom: 72px; }
+section:last-child { margin-bottom: 0; }
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.42);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
+/* Project cards */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.project {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px 22px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.2s;
+  min-height: 168px;
+}
+.project:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.project-tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.project-title {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-heading);
+  letter-spacing: -0.014em;
+  line-height: 1.22;
+  margin-bottom: 8px;
+}
+.project-desc {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  flex-grow: 1;
+}
+.project-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 14px;
+  letter-spacing: -0.01em;
+}
+
+/* Lab */
+.lab {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 28px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.2s;
+}
+.lab:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.lab-body {
+  flex-grow: 1;
+}
+.lab-title {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-heading);
+  letter-spacing: -0.014em;
+  margin-bottom: 4px;
+}
+.lab-desc {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+}
+.lab-arrow {
+  font-size: 20px;
+  color: var(--text-muted);
+  transition: color 0.15s, transform 0.15s;
+}
+.lab:hover .lab-arrow { color: var(--accent); transform: translateX(3px); }
+
+/* Footer */
+.footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  letter-spacing: -0.01em;
+}
+.footer a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.footer a:hover { color: var(--accent); }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .container { padding: 64px 24px 64px; }
+  .hero { margin-bottom: 64px; }
+  .hero h1 { font-size: 42px; }
+  .hero p { font-size: 17px; }
+  section { margin-bottom: 56px; }
+  .lab { padding: 22px; }
+  .footer { margin-top: 64px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="hero">
+    <h1>Alex Junho Lee</h1>
+    <p>Spatial AI · Robotics 엔지니어 / 숙명여자대학교 기계시스템학부 조교수</p>
+  </header>
+
+  <section>
+    <div class="section-label">Guides</div>
+    <div class="projects">
+
+      <a class="project" href="https://alexjunholee.github.io/robotics-practice/">
+        <div class="project-tag">Robotics</div>
+        <div class="project-title">Spatial AI 로보틱스 가이드</div>
+        <div class="project-desc">로보틱스 입문자를 위한 Spatial AI 인터랙티브 가이드. 직관 · 수식 · 코드 · 브라우저 데모.</div>
+        <div class="project-meta">Interactive · HTML/JS</div>
+      </a>
+
+      <a class="project" href="https://alexjunholee.github.io/sensor-fusion-guide/guide.html">
+        <div class="project-tag">Sensor Fusion</div>
+        <div class="project-title">센서 퓨전 심화 가이드</div>
+        <div class="project-desc">로컬라이제이션·매핑·멀티센서 융합을 13장에 걸쳐 다루는 심화 레퍼런스.</div>
+        <div class="project-meta">13 chapters · Deep reference</div>
+      </a>
+
+      <a class="project" href="https://alexjunholee.github.io/university-math/">
+        <div class="project-tag">Mathematics</div>
+        <div class="project-title">대학수학 종합 레퍼런스</div>
+        <div class="project-desc">집합론부터 대수기하·호몰로지·확률·최적화까지 대학 수준 수학 전범위 레퍼런스.</div>
+        <div class="project-meta">32 chapters · Full reference</div>
+      </a>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Lab</div>
+    <a class="lab" href="https://sites.google.com/sookmyung.ac.kr/sprint-lab">
+      <div class="lab-body">
+        <div class="lab-title">SPRINT Lab</div>
+        <div class="lab-desc">Spatial Perception & Robot Intelligence · Sookmyung Women's University</div>
+      </div>
+      <div class="lab-arrow">→</div>
+    </a>
+  </section>
+
+  <footer class="footer">
+    <a href="https://github.com/alexjunholee">GitHub</a>
+    <span>·</span>
+    <a href="mailto:sprintlab.smwu@gmail.com">Contact</a>
+  </footer>
+
+</div>
+</body>
+</html>
