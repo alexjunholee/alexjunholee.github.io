@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alex Junho Lee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -14,15 +16,16 @@
   --text: #1d1d1f;
   --text-body: rgba(0, 0, 0, 0.8);
   --text-muted: rgba(0, 0, 0, 0.56);
+  --text-tertiary: rgba(0, 0, 0, 0.48);
   --text-heading: #1d1d1f;
   --accent: #0071e3;
   --link: #0066cc;
   --border: rgba(0, 0, 0, 0.08);
   --border-strong: rgba(0, 0, 0, 0.16);
-  --shadow-elev: rgba(0, 0, 0, 0.22) 3px 5px 30px 0px;
+  --nav-height: 52px;
 }
 
-html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 body {
   font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
@@ -37,80 +40,310 @@ body {
   min-height: 100vh;
 }
 
-.container {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 96px 32px 80px;
+a { color: var(--link); text-decoration: none; transition: color 0.12s; }
+a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+h1, h2, h3 {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', sans-serif;
+  color: var(--text-heading);
+  letter-spacing: -0.014em;
 }
+
+/* ─────────── Home icon (top-left, only on subpages) ─────────── */
+.home-link {
+  position: fixed;
+  top: 22px;
+  left: 26px;
+  z-index: 100;
+  width: 32px;
+  height: 32px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-radius: 10px;
+  transition: color 0.12s, background 0.12s;
+}
+.home-link:hover { color: var(--accent); background: rgba(255, 255, 255, 1); text-decoration: none; }
+.home-link svg { width: 20px; height: 20px; }
+body.subpage .home-link { display: flex; }
+
+/* ─────────── Body page-links (landing navigation) ─────────── */
+.page-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.page-link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  letter-spacing: -0.014em;
+  transition: color 0.12s;
+}
+.page-link:first-child { border-top: 1px solid var(--border); }
+.page-link:hover { color: var(--accent); text-decoration: none; }
+.page-link-title {
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+}
+.page-link-meta {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+  margin-left: 16px;
+  white-space: nowrap;
+}
+.page-link:hover .page-link-meta { color: var(--accent); }
+
+/* ─────────── Container ─────────── */
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 72px 32px 60px;
+}
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
 
 /* Hero */
 .hero {
-  margin-bottom: 96px;
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  margin-bottom: 72px;
+}
+.hero-text { flex: 1; min-width: 0; }
+.portrait {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
 }
 .hero h1 {
-  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', sans-serif;
   font-size: 64px;
   font-weight: 600;
-  line-height: 1.05;
+  line-height: 1.04;
   letter-spacing: -0.022em;
-  color: var(--text-heading);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
-.hero p {
-  font-size: 21px;
+.hero .name-alt {
+  font-size: 20px;
   color: var(--text-muted);
-  max-width: 640px;
-  letter-spacing: -0.016em;
-  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: -0.014em;
+  margin-bottom: 22px;
+}
+.hero .role {
+  font-size: 19px;
+  line-height: 1.48;
+  color: var(--text-body);
+  max-width: 720px;
+  letter-spacing: -0.014em;
+}
+.hero .role .muted { color: var(--text-muted); }
+.hero .tagline {
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 720px;
+  letter-spacing: -0.014em;
+  margin-top: 16px;
+  line-height: 1.5;
 }
 
-/* Section */
-section { margin-bottom: 72px; }
-section:last-child { margin-bottom: 0; }
+/* Tab-page title */
+.page-title {
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  line-height: 1.1;
+  margin-bottom: 36px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
 
+/* Sections */
+section { margin-bottom: 56px; }
+section:last-of-type { margin-bottom: 0; }
 .section-label {
   font-size: 11px;
   font-weight: 700;
   color: rgba(0, 0, 0, 0.42);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+}
+.subsection-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-heading);
+  letter-spacing: -0.01em;
+  margin: 22px 0 8px 0;
+}
+.subsection-label:first-child { margin-top: 0; }
+
+/* Publications */
+.pub-year {
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  margin: 28px 0 12px 0;
+}
+.pub-year:first-child { margin-top: 0; }
+.pub { margin-bottom: 18px; line-height: 1.5; }
+.pub-authors {
+  font-size: 14px;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+  margin-bottom: 3px;
+}
+.pub-authors strong { color: var(--text); font-weight: 600; }
+.pub-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-heading);
+  letter-spacing: -0.012em;
+  margin-bottom: 3px;
+}
+.pub-venue {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+.see-more {
+  margin-top: 28px;
+  font-size: 14.5px;
+  color: var(--text-muted);
+}
+.see-more a { color: var(--accent); }
+
+/* Info list */
+.info-list { list-style: none; padding: 0; margin: 0; }
+.info-list > li {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.info-list > li:last-child { border-bottom: none; }
+.info-list .date {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.info-list .content { color: var(--text-body); letter-spacing: -0.01em; }
+.info-list .content em {
+  display: block;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  font-style: normal;
+  margin-top: 3px;
 }
 
-/* Project cards */
+/* Course list (grouped by course, terms stacked) */
+.course-list { list-style: none; padding: 0; margin: 0; }
+.course-list > li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+  line-height: 1.55;
+}
+.course-list > li:last-child { border-bottom: none; }
+.course-list .course-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.012em;
+}
+.course-list .course-name em {
+  display: block;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  font-style: normal;
+  margin-top: 2px;
+}
+.course-list .course-terms {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+.course-list .course-terms span {
+  display: block;
+}
+
+/* Plain list */
+.plain-list { list-style: none; padding: 0; margin: 0; }
+.plain-list > li {
+  padding: 5px 0;
+  font-size: 14.5px;
+  color: var(--text-body);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+.reviewer-line {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+}
+.reviewer-line .sep { color: var(--border-strong); margin: 0 6px; }
+
+/* Guides */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
+  gap: 14px;
 }
 .project {
   display: flex;
   flex-direction: column;
-  padding: 24px 24px 22px;
+  padding: 22px 22px 20px;
   background: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: 14px;
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.15s, transform 0.15s, box-shadow 0.2s;
-  min-height: 168px;
+  transition: border-color 0.15s;
 }
-.project:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
+.project:hover { border-color: var(--accent); text-decoration: none; }
 .project-tag {
   font-size: 11px;
   font-weight: 600;
   color: var(--accent);
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 .project-title {
-  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', sans-serif;
-  font-size: 20px;
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 18px;
   font-weight: 600;
   color: var(--text-heading);
   letter-spacing: -0.014em;
@@ -118,144 +351,430 @@ section:last-child { margin-bottom: 0; }
   margin-bottom: 8px;
 }
 .project-desc {
-  font-size: 14.5px;
+  font-size: 14px;
   color: var(--text-muted);
   line-height: 1.45;
   letter-spacing: -0.01em;
   flex-grow: 1;
 }
-.project-meta {
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-top: 14px;
-  letter-spacing: -0.01em;
-}
 
-/* Lab */
-.lab {
+/* Card (lab, series, generic link card) */
+.lab, .series-card {
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 28px 28px;
+  padding: 22px 26px;
   background: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: 14px;
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.15s, transform 0.15s, box-shadow 0.2s;
+  transition: border-color 0.15s;
 }
-.lab:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-.lab-body {
-  flex-grow: 1;
-}
-.lab-title {
-  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', sans-serif;
-  font-size: 20px;
+.lab:hover, .series-card:hover { border-color: var(--accent); text-decoration: none; }
+.lab-body, .series-body { flex-grow: 1; }
+.lab-title, .series-title {
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 18px;
   font-weight: 600;
   color: var(--text-heading);
   letter-spacing: -0.014em;
   margin-bottom: 4px;
 }
-.lab-desc {
-  font-size: 14.5px;
+.lab-desc, .series-desc {
+  font-size: 14px;
   color: var(--text-muted);
   letter-spacing: -0.01em;
 }
-.lab-arrow {
+.lab-arrow, .series-arrow {
   font-size: 20px;
   color: var(--text-muted);
-  transition: color 0.15s, transform 0.15s;
+  transition: color 0.12s;
+  flex-shrink: 0;
 }
-.lab:hover .lab-arrow { color: var(--accent); transform: translateX(3px); }
+.lab:hover .lab-arrow, .series-card:hover .series-arrow { color: var(--accent); }
+
+.series-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.series-icon svg { width: 100%; height: 100%; }
 
 /* Footer */
 .footer {
-  margin-top: 96px;
-  padding-top: 32px;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 32px 32px 40px;
   border-top: 1px solid var(--border);
   font-size: 13px;
   color: var(--text-muted);
   display: flex;
-  gap: 18px;
+  gap: 16px;
   flex-wrap: wrap;
   letter-spacing: -0.01em;
 }
-.footer a {
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: color 0.15s;
-}
+.footer a { color: var(--text-muted); }
 .footer a:hover { color: var(--accent); }
 
 /* Responsive */
-@media (max-width: 640px) {
-  .container { padding: 64px 24px 64px; }
-  .hero { margin-bottom: 64px; }
+@media (max-width: 720px) {
+  .home-link { top: 14px; left: 14px; width: 30px; height: 30px; }
+  .container { padding: 48px 22px 48px; }
+  .page-link-title { font-size: 19px; }
+  .footer { padding: 24px 22px 32px; }
+  .hero {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 52px;
+  }
+  .portrait { width: 120px; height: 120px; }
   .hero h1 { font-size: 42px; }
-  .hero p { font-size: 17px; }
-  section { margin-bottom: 56px; }
-  .lab { padding: 22px; }
-  .footer { margin-top: 64px; }
+  .hero .name-alt { font-size: 17px; }
+  .hero .role { font-size: 16.5px; }
+  .page-title { font-size: 32px; }
+  section { margin-bottom: 44px; }
+  .info-list > li { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
+  .info-list .date { font-size: 12px; }
+  .lab { padding: 20px; }
 }
 </style>
 </head>
 <body>
+
+<a class="home-link" href="#about" aria-label="Home">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+    <polyline points="9 22 9 12 15 12 15 22"/>
+  </svg>
+</a>
+
 <div class="container">
 
-  <header class="hero">
-    <h1>Alex Junho Lee</h1>
-    <p>Spatial AI · Robotics 엔지니어 / 숙명여자대학교 기계시스템학부 조교수</p>
-  </header>
-
-  <section>
-    <div class="section-label">Guides</div>
-    <div class="projects">
-
-      <a class="project" href="https://alexjunholee.github.io/robotics-practice/">
-        <div class="project-tag">Robotics</div>
-        <div class="project-title">Spatial AI 로보틱스 가이드</div>
-        <div class="project-desc">로보틱스 입문자를 위한 Spatial AI 인터랙티브 가이드. 직관 · 수식 · 코드 · 브라우저 데모.</div>
-        <div class="project-meta">Interactive · HTML/JS</div>
-      </a>
-
-      <a class="project" href="https://alexjunholee.github.io/sensor-fusion-guide/guide.html">
-        <div class="project-tag">Sensor Fusion</div>
-        <div class="project-title">센서 퓨전 심화 가이드</div>
-        <div class="project-desc">로컬라이제이션·매핑·멀티센서 융합을 13장에 걸쳐 다루는 심화 레퍼런스.</div>
-        <div class="project-meta">13 chapters · Deep reference</div>
-      </a>
-
-      <a class="project" href="https://alexjunholee.github.io/university-math/">
-        <div class="project-tag">Mathematics</div>
-        <div class="project-title">대학수학 종합 레퍼런스</div>
-        <div class="project-desc">집합론부터 대수기하·호몰로지·확률·최적화까지 대학 수준 수학 전범위 레퍼런스.</div>
-        <div class="project-meta">32 chapters · Full reference</div>
-      </a>
-
-    </div>
-  </section>
-
-  <section>
-    <div class="section-label">Lab</div>
-    <a class="lab" href="https://sites.google.com/sookmyung.ac.kr/sprint-lab">
-      <div class="lab-body">
-        <div class="lab-title">SPRINT Lab</div>
-        <div class="lab-desc">Spatial Perception & Robot Intelligence · Sookmyung Women's University</div>
+  <!-- ─────────── About ─────────── -->
+  <div class="tab-panel" data-tab="about">
+    <header class="hero">
+      <div class="hero-text">
+        <h1>Alex Junho Lee</h1>
+        <div class="name-alt">이준호 &middot; 李俊昊</div>
+        <p class="role">
+          Spatial AI &middot; Robotics 엔지니어<br>
+          <span class="muted">숙명여자대학교 기계시스템학부 조교수</span>
+        </p>
       </div>
-      <div class="lab-arrow">→</div>
-    </a>
-  </section>
+      <img class="portrait" src="assets/portrait.jpg" alt="Alex Junho Lee">
+    </header>
 
-  <footer class="footer">
-    <a href="https://github.com/alexjunholee">GitHub</a>
-    <span>·</span>
-    <a href="mailto:alexlee@sm.ac.kr">Contact</a>
-  </footer>
+    <section>
+      <div class="section-label">Explore</div>
+      <div class="page-links">
+        <a class="page-link" href="#publications">
+          <span class="page-link-title">Publications</span>
+        </a>
+        <a class="page-link" href="#activities">
+          <span class="page-link-title">Professional Activities</span>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Lab</div>
+      <a class="lab" href="https://sites.google.com/sookmyung.ac.kr/sprint-lab">
+        <div class="lab-body">
+          <div class="lab-title">SPRINT Lab</div>
+          <div class="lab-desc">Spatial Perception &amp; Robot Intelligence &middot; Sookmyung Women's University</div>
+        </div>
+        <div class="lab-arrow">→</div>
+      </a>
+    </section>
+
+    <section>
+      <div class="section-label">Guides on Engineering Series</div>
+      <div class="projects">
+        <a class="project" href="https://alexjunholee.github.io/robotics-practice/">
+          <div class="project-tag">Robotics</div>
+          <div class="project-title">Spatial AI 로보틱스 가이드</div>
+          <div class="project-desc">로보틱스 입문자를 위한 Spatial AI 인터랙티브 가이드.</div>
+        </a>
+        <a class="project" href="https://alexjunholee.github.io/sensor-fusion-guide/guide.html">
+          <div class="project-tag">Sensor Fusion</div>
+          <div class="project-title">센서 퓨전 심화 가이드</div>
+          <div class="project-desc">로컬라이제이션·매핑·멀티센서 융합 13장짜리 심화 레퍼런스.</div>
+        </a>
+        <a class="project" href="https://alexjunholee.github.io/university-math/">
+          <div class="project-tag">Mathematics</div>
+          <div class="project-title">대학수학 종합 레퍼런스</div>
+          <div class="project-desc">집합론부터 대수기하·호몰로지·확률·최적화까지.</div>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ─────────── Publications ─────────── -->
+  <div class="tab-panel" data-tab="publications">
+    <h1 class="page-title">Publications</h1>
+
+    <div class="pub-year">2026</div>
+    <article class="pub">
+      <div class="pub-authors">Seoyeon Jang, <strong>Alex Junho Lee</strong>, I Made Aswin Nahrendra, Hyun Myung</div>
+      <div class="pub-title">Chamelion: Reliable Change Detection for Long-Term LiDAR Mapping in Transient Environments</div>
+      <div class="pub-venue">IEEE Robotics and Automation Letters, vol. 11, no. 4, pp. 4361–4368</div>
+    </article>
+
+    <div class="pub-year">2024</div>
+    <article class="pub">
+      <div class="pub-authors">Seungwon Song, Hyungtae Lim, <strong>Alex Junho Lee</strong>, Hyun Myung</div>
+      <div class="pub-title">DynaVINS++: Robust Visual-Inertial State Estimator in Dynamic Environments by Adaptive Truncated Least Squares and Stable State Recovery</div>
+      <div class="pub-venue">IEEE Robotics and Automation Letters, vol. 9, no. 10, pp. 9127–9134</div>
+    </article>
+
+    <div class="pub-year">2023</div>
+    <article class="pub">
+      <div class="pub-authors"><strong>Alex Junho Lee</strong>, Wonho Song, Byeongho Yu, Duckyu Choi, Christian Tirtawardhana, Hyun Myung</div>
+      <div class="pub-title">Survey of robotics technologies for civil infrastructure inspection</div>
+      <div class="pub-venue">Journal of Infrastructure Intelligence and Resilience, vol. 2, no. 1, pp. 100018</div>
+    </article>
+    <article class="pub">
+      <div class="pub-authors">Ung Hyun Ko, Jinseung Choung, <strong>Alex Junho Lee</strong>, Suk-Hee Park, Jennifer H. Shin</div>
+      <div class="pub-title">Surface tension-induced biomimetic assembly of cell-laden fibrous bundle construct for muscle tissue engineering</div>
+      <div class="pub-venue">Biomedical Materials, vol. 18, no. 5, pp. 055031</div>
+    </article>
+
+    <div class="pub-year">2022</div>
+    <article class="pub">
+      <div class="pub-authors">Seungwon Song, Hyungtae Lim, <strong>Alex Junho Lee</strong>, Hyun Myung</div>
+      <div class="pub-title">DynaVINS: A Visual-Inertial SLAM for Dynamic Environments</div>
+      <div class="pub-venue">IEEE Robotics and Automation Letters, vol. 7, no. 4, pp. 11523–11530</div>
+    </article>
+    <article class="pub">
+      <div class="pub-authors"><strong>Alex Junho Lee</strong>, Younggun Cho, Young-sik Shin, Ayoung Kim, Hyun Myung</div>
+      <div class="pub-title">ViViD++: Vision for Visibility Dataset</div>
+      <div class="pub-venue">IEEE Robotics and Automation Letters, vol. 7, no. 3, pp. 6282–6289</div>
+    </article>
+    <article class="pub">
+      <div class="pub-authors"><strong>Alex Junho Lee</strong>, Hyun Myung</div>
+      <div class="pub-title">Natural Language Representation as Features for Place Recognition</div>
+      <div class="pub-venue">Proc. IEEE Int'l Conf. on Ubiquitous Robots (UR), pp. 284–287</div>
+    </article>
+    <article class="pub">
+      <div class="pub-authors"><strong>Alex Junho Lee</strong>, Hyungtae Lim, Minho Oh, Wonho Song, Hyun Myung</div>
+      <div class="pub-title">Volumetric Vegetation Monitoring from LiDAR Scans with Ground Estimation</div>
+      <div class="pub-venue">Proc. IEEE Int'l Conf. on Control, Automation and Systems (ICCAS), pp. 1378–1379</div>
+    </article>
+    <article class="pub">
+      <div class="pub-authors"><strong>Alex Junho Lee</strong>, Younggun Cho, Hyun Myung</div>
+      <div class="pub-title">Low-cost Thermal Mapping for Concrete Heat Monitoring</div>
+      <div class="pub-venue">Future of Construction Workshop at ICRA 2022, pp. 20–23</div>
+    </article>
+    <article class="pub">
+      <div class="pub-authors">Sumin Hu, Yeeun Kim, Hyungtae Lim, <strong>Alex Junho Lee</strong>, Hyun Myung</div>
+      <div class="pub-title">eCDT: Event clustering for simultaneous feature detection and tracking</div>
+      <div class="pub-venue">Proc. IEEE/RSJ Int'l Conf. on Intelligent Robots and Systems (IROS), pp. 3808–3815</div>
+    </article>
+
+    <div class="pub-year">2021</div>
+    <article class="pub">
+      <div class="pub-authors"><strong>Alex Junho Lee</strong>, Ayoung Kim</div>
+      <div class="pub-title">EventVLAD: Visual Place Recognition with Reconstructed Edges from Event Cameras</div>
+      <div class="pub-venue">Proc. IEEE/RSJ Int'l Conf. on Intelligent Robots and Systems (IROS), pp. 2247–2252</div>
+    </article>
+
+    <div class="pub-year">2017</div>
+    <article class="pub">
+      <div class="pub-authors"><strong>Alex Junho Lee</strong>, Ayoung Kim</div>
+      <div class="pub-title">Event-based real-time optical flow estimation</div>
+      <div class="pub-venue">Proc. IEEE Int'l Conf. on Control, Automation and Systems (ICCAS), pp. 787–791</div>
+    </article>
+
+    <p class="see-more"><a href="https://scholar.google.com/citations?user=SM7JFHsAAAAJ&hl=ko">See all on Google Scholar →</a></p>
+  </div>
+
+  <!-- ─────────── Professional Activities ─────────── -->
+  <div class="tab-panel" data-tab="activities">
+    <h1 class="page-title">Professional Activities</h1>
+
+    <section>
+      <div class="section-label">Education</div>
+      <ul class="info-list">
+        <li>
+          <span class="date">2023.02</span>
+          <span class="content">
+            Ph.D., Robotics Program, Civil and Environmental Engineering<br>
+            Korea Advanced Institute of Science and Technology (KAIST)
+            <em>Thesis: Robust Localization Under Appearance Changes With Multi-Modal Sensor Fusion</em>
+          </span>
+        </li>
+        <li>
+          <span class="date">2017.02</span>
+          <span class="content">
+            B.S., Mechanical Engineering, KAIST
+            <em>Double-Major: Business and Technology Management (BTM)</em>
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-label">Experience</div>
+      <ul class="info-list">
+        <li><span class="date">2025.03 – Present</span><span class="content">Assistant Professor, Sookmyung Women's University</span></li>
+        <li><span class="date">2023.02 – 2025.02</span><span class="content">Senior Research Engineer, Robotics Lab, Hyundai Motor Company</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-label">Research Projects</div>
+      <ul class="info-list">
+        <li><span class="date">2026</span><span class="content">미지 복잡환경 내 정밀 3차원 복원을 위한 탐사 기법 개발 <em>숙명여자대학교</em></span></li>
+        <li><span class="date">2026</span><span class="content">하수관로 맵핑 시스템 개발을 위한 측위 시스템 및 소프트웨어 통합 <em>용역</em></span></li>
+        <li><span class="date">2025</span><span class="content">대규모 환경에서의 자율 로봇 운용을 위한 위치인식 기법 연구 <em>숙명여자대학교</em></span></li>
+        <li><span class="date">2025</span><span class="content">창의적자산 실용화지원사업 (BRIDGE 3.0) <em>숙명여자대학교 산학협력단</em></span></li>
+        <li><span class="date">2022</span><span class="content">데이터 정합 및 Calibration에 관한 기술이전 <em>베어로보틱스코리아</em></span></li>
+        <li><span class="date">2022</span><span class="content">Robust (visual) place recognition for location authentication <em>중소벤처기업부</em></span></li>
+        <li><span class="date">2021–2022</span><span class="content">Last-mile delivery robot in a crowded urban area <em>산업통상자원부</em></span></li>
+        <li><span class="date">2021</span><span class="content">전장상황에서의 자율비행 기술경진대회 <em>국방부</em></span></li>
+        <li><span class="date">2019–2020</span><span class="content">Long-term mapping of unstructured outdoor environment <em>국토교통부</em></span></li>
+        <li><span class="date">2019</span><span class="content">Indoor SLAM in crowded indoor environments <em>과학기술정보통신부</em></span></li>
+        <li><span class="date">2018</span><span class="content">Indoor SLAM under complex disaster <em>산업통상자원부</em></span></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-label">Awards</div>
+      <ul class="info-list">
+        <li><span class="date">Dec 2025</span><span class="content">최우수상 (상금 100만원), 2025 SMU EDU Expo 캡스톤디자인경진대회 — 지도교수, 팀 MechX</span></li>
+        <li><span class="date">Dec 2025</span><span class="content">최우수상 (상금 100만원), 2025 SMU EDU Expo 캡스톤디자인경진대회 — 지도교수, 팀 Combeenation</span></li>
+        <li><span class="date">Nov 2025</span><span class="content">2025 Outstanding Young Researcher (우수신진연구자상), ICCAS</span></li>
+        <li><span class="date">Jul 2024</span><span class="content">2024 Outstanding Early Career Researcher (우수신진연구자상), 제어로봇시스템학회 (ICROS)</span></li>
+        <li><span class="date">May 2022</span><span class="content">2nd CASH Prize (USD 3,000) in Academia, HILTI SLAM Challenge — Future of Construction Workshop, ICRA, Philadelphia</span></li>
+        <li><span class="date">May 2019</span><span class="content">Best Poster Presentation — Dataset Generation and Benchmarking of SLAM Algorithms for Robotics and VR/AR Workshop, ICRA, Montreal</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-label">Patents</div>
+      <ul class="info-list">
+        <li><span class="date">2026 (출원)</span><span class="content">비상 상황 시 링크 기구를 이용하여 한 쌍의 도어를 동기적으로 개방 및 정렬시키는 도어 제어 알고리즘 제공 방법 및 그 장치 <em>출원 10-2026-0060451</em></span></li>
+        <li><span class="date">2026 (출원)</span><span class="content">비상 상황 시 회전 구조로부터 직선형 개방 통로 구조로 전환 가능한 가변형 회전문 장치 및 그 제어 방법 <em>출원 10-2026-0060452</em></span></li>
+        <li><span class="date">2019 (등록)</span><span class="content">엔코더 프레임 장치 및 이를 이용한 차량 위치 측정 시스템 <em>등록 10-1994339</em></span></li>
+        <li><span class="date">2012 (등록)</span><span class="content">과학 실험용 인쇄장치 <em>등록 10-1207607</em></span></li>
+      </ul>
+    </section>
+
+    <section id="teaching">
+      <div class="section-label">Teaching</div>
+      <ul class="course-list">
+        <li>
+          <span class="course-name">Mechanism Design</span>
+          <span class="course-terms"><span>Spring 2026</span><span>Spring 2025</span></span>
+        </li>
+        <li>
+          <span class="course-name">Engineering Mathematics</span>
+          <span class="course-terms"><span>Spring 2026</span></span>
+        </li>
+        <li>
+          <span class="course-name">CAD &amp; 3D Printing</span>
+          <span class="course-terms"><span>Fall 2025</span></span>
+        </li>
+        <li>
+          <span class="course-name">Graduate Numerical Analysis</span>
+          <span class="course-terms"><span>Fall 2025</span></span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-label">Service</div>
+
+      <div class="subsection-label">Editor</div>
+      <ul class="plain-list">
+        <li>IEEE International Conference on Ubiquitous Robots (UR), 2025 &amp; 2026</li>
+      </ul>
+
+      <div class="subsection-label">Guest Editor</div>
+      <ul class="plain-list">
+        <li>International Journal of Control, Automation, and Systems (IJCAS), 2025</li>
+      </ul>
+
+      <div class="subsection-label">Session Chair</div>
+      <ul class="plain-list">
+        <li>Session Co-Chair, Localization II — IEEE/RSJ IROS, Prague, 2021</li>
+      </ul>
+
+      <div class="subsection-label">Reviewer</div>
+      <p class="reviewer-line">
+        IEEE T-IV <span class="sep">&middot;</span> T-ASE <span class="sep">&middot;</span> RA-L <span class="sep">&middot;</span> RAS <span class="sep">&middot;</span> ICRA <span class="sep">&middot;</span> IROS <span class="sep">&middot;</span> UR <span class="sep">&middot;</span> JIST
+      </p>
+
+      <div class="subsection-label">Outreach</div>
+      <ul class="plain-list">
+        <li>Instructor, KAIST Global Center for Gifted Children, Mar. 2015 – Dec. 2018</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-label">Articles &amp; Interviews</div>
+      <ul class="info-list">
+        <li><span class="date">Interview</span><span class="content"><a href="https://www.irobotnews.com/news/articleView.html?idxno=40437">로봇신문 — '젊은 로봇 공학자'</a></span></li>
+        <li><span class="date">2022</span><span class="content">건축물 진단을 위한 안전 로봇 기술 동향 — ICROS 9월호</span></li>
+        <li><span class="date">2021</span><span class="content">지능로보틱스분야 기술혁신위원회 보고서</span></li>
+        <li><span class="date">2017</span><span class="content">4차산업혁명과 자율주행 보고서</span></li>
+      </ul>
+    </section>
+  </div>
 
 </div>
+
+<footer class="footer">
+  <a href="https://github.com/alexjunholee">GitHub</a>
+  <span>·</span>
+  <a href="https://scholar.google.com/citations?user=SM7JFHsAAAAJ&hl=ko">Google Scholar</a>
+  <span>·</span>
+  <a href="mailto:alexlee@sm.ac.kr">Contact</a>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+  var TABS = ['about', 'publications', 'activities'];
+  var SECTION_ALIASES = { 'teaching': 'activities' };
+  var panels = document.querySelectorAll('.tab-panel');
+
+  function activate() {
+    var hash = window.location.hash.slice(1);
+    var tab = hash;
+    var scrollTarget = null;
+    if (SECTION_ALIASES[hash]) {
+      tab = SECTION_ALIASES[hash];
+      scrollTarget = hash;
+    } else if (TABS.indexOf(tab) === -1) {
+      tab = 'about';
+    }
+    panels.forEach(function(p) {
+      p.classList.toggle('active', p.getAttribute('data-tab') === tab);
+    });
+    document.body.classList.toggle('subpage', tab !== 'about');
+    if (scrollTarget) {
+      var el = document.getElementById(scrollTarget);
+      if (el) {
+        window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 20);
+      } else {
+        window.scrollTo(0, 0);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+    document.title = (tab === 'about' ? '' : tab.charAt(0).toUpperCase() + tab.slice(1) + ' · ') + 'Alex Junho Lee';
+  }
+
+  window.addEventListener('hashchange', activate);
+  activate();
+})();
+</script>
 </body>
 </html>
