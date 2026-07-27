@@ -153,6 +153,39 @@ body.subpage .home-link { display: flex; }
   letter-spacing: -0.014em;
 }
 .hero .role .muted { color: var(--text-muted); }
+.hero-meta {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+.cv-links {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.cv-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 5px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+  transition: color 0.12s, border-color 0.12s, background 0.12s;
+}
+.cv-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--bg-alt);
+  text-decoration: none;
+}
 .hero .tagline {
   font-size: 17px;
   color: var(--text-muted);
@@ -437,6 +470,7 @@ section:last-of-type { margin-bottom: 0; }
   .hero h1 { font-size: 42px; }
   .hero .name-alt { font-size: 17px; }
   .hero .role { font-size: 16.5px; }
+  .hero-meta { flex-direction: column; align-items: flex-start; gap: 14px; }
   .page-title { font-size: 32px; }
   section { margin-bottom: 44px; }
   .info-list > li { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
@@ -462,10 +496,16 @@ section:last-of-type { margin-bottom: 0; }
       <div class="hero-text">
         <h1>Alex Junho Lee</h1>
         <div class="name-alt">이준호 &middot; 李俊昊</div>
-        <p class="role">
-          Spatial AI &middot; Robotics 엔지니어<br>
-          <span class="muted">숙명여자대학교 기계시스템학부 조교수</span>
-        </p>
+        <div class="hero-meta">
+          <p class="role">
+            Spatial AI &middot; Robotics 엔지니어<br>
+            <span class="muted">숙명여자대학교 기계시스템학부 조교수</span>
+          </p>
+          <div class="cv-links" aria-label="Curriculum vitae">
+            <a class="cv-link" href="https://github.com/alexjunholee/CV/raw/refs/heads/main/cv.pdf" download>CV EN</a>
+            <a class="cv-link" href="https://github.com/alexjunholee/CV/raw/refs/heads/main/cv_KR.pdf" download>CV KO</a>
+          </div>
+        </div>
       </div>
       <img class="portrait" src="assets/portrait.jpg" alt="Alex Junho Lee">
     </header>
