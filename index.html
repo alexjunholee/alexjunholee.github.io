@@ -257,6 +257,169 @@ section:last-of-type { margin-bottom: 0; }
   font-style: italic;
   letter-spacing: -0.01em;
 }
+.sprint-list {
+  border-top: 1px solid var(--border-strong);
+}
+.sprint-category { margin-bottom: 38px; }
+.sprint-category-title {
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-heading);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.sprint-entry {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 24px;
+  align-items: center;
+  min-height: 126px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border-strong);
+}
+.sprint-figure {
+  min-width: 0;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  height: 112px;
+}
+.sprint-figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sprint-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+}
+.sprint-gallery img { min-width: 0; min-height: 0; }
+.sprint-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+.sprint-kicker {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.025em;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 6px;
+}
+.sprint-entry .pub-title {
+  font-size: 17px;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+.sprint-people {
+  display: grid;
+  grid-template-columns: 82px 1fr;
+  column-gap: 10px;
+  row-gap: 3px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+}
+.sprint-people dt { font-weight: 600; color: var(--text-tertiary); }
+.sprint-people dd { margin: 0; }
+.sprint-citations {
+  display: grid;
+  gap: 5px;
+}
+.sprint-citations span { display: block; }
+.sprint-members {
+  display: grid;
+  gap: 40px;
+}
+.sprint-member-group-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin-bottom: 14px;
+}
+.sprint-member-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.sprint-member-grid--professor { grid-template-columns: 1fr; }
+.sprint-member-card {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  min-height: 156px;
+  padding: 18px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.sprint-member-card--professor {
+  grid-template-columns: 132px minmax(0, 1fr);
+}
+.sprint-member-photo {
+  display: block;
+  width: 112px;
+  height: 132px;
+  object-fit: contain;
+  object-position: center;
+}
+.sprint-member-card--professor .sprint-member-photo {
+  width: 132px;
+  height: 176px;
+  object-fit: cover;
+}
+.sprint-member-name {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--text-heading);
+  line-height: 1.35;
+  margin-bottom: 9px;
+}
+.sprint-member-meta {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+.sprint-member-meta + .sprint-member-meta { margin-top: 4px; }
+.sprint-member-meta a { color: var(--text-muted); }
+.sprint-member-meta a:hover { color: var(--accent); }
+.sprint-member-field {
+  color: var(--text-tertiary);
+  font-weight: 600;
+}
+.sprint-alumni {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border-strong);
+}
+.sprint-alumni li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+.sprint-alumni strong {
+  color: var(--text-heading);
+  font-weight: 600;
+}
+.sprint-projects-heading {
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  margin: 66px 0 34px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
 .see-more {
   margin-top: 28px;
   font-size: 14.5px;
@@ -476,6 +639,26 @@ section:last-of-type { margin-bottom: 0; }
   .info-list > li { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
   .info-list .date { font-size: 12px; }
   .lab { padding: 20px; }
+  .sprint-entry { grid-template-columns: 1fr; }
+  .sprint-figure { width: 180px; height: 112px; }
+  .sprint-body { padding: 0 0 4px; }
+  .sprint-members { gap: 34px; }
+  .sprint-member-grid { grid-template-columns: 1fr; }
+  .sprint-member-card,
+  .sprint-member-card--professor {
+    grid-template-columns: 98px minmax(0, 1fr);
+    min-height: 136px;
+    padding: 15px;
+    gap: 15px;
+  }
+  .sprint-member-photo,
+  .sprint-member-card--professor .sprint-member-photo {
+    width: 98px;
+    height: 120px;
+    object-fit: contain;
+  }
+  .sprint-member-card--professor .sprint-member-photo { object-fit: cover; }
+  .sprint-projects-heading { font-size: 24px; margin-top: 52px; }
 }
 </style>
 </head>
@@ -524,10 +707,10 @@ section:last-of-type { margin-bottom: 0; }
 
     <section>
       <div class="section-label">Lab</div>
-      <a class="lab" href="https://sites.google.com/sookmyung.ac.kr/sprint-lab">
+      <a class="lab" href="#sprint-projects">
         <div class="lab-body">
           <div class="lab-title">SPRINT Lab</div>
-          <div class="lab-desc">Spatial Perception &amp; Robot Intelligence &middot; Sookmyung Women's University</div>
+          <div class="lab-desc">Spatial Robot Intelligence Lab</div>
         </div>
         <div class="lab-arrow">→</div>
       </a>
@@ -671,6 +854,183 @@ section:last-of-type { margin-bottom: 0; }
     <p class="see-more"><a href="https://scholar.google.com/citations?user=SM7JFHsAAAAJ&hl=ko">See all on Google Scholar →</a></p>
   </div>
 
+  <!-- ─────────── Projects @ SPRINT Lab ─────────── -->
+  <div class="tab-panel" data-tab="sprint-projects">
+    <h1 class="page-title">SPRINT Lab</h1>
+
+    <section>
+      <div class="section-label">Members</div>
+      <div class="sprint-members">
+        <div class="sprint-member-group">
+          <h2 class="sprint-member-group-title">Professor</h2>
+          <div class="sprint-member-grid sprint-member-grid--professor">
+            <article class="sprint-member-card sprint-member-card--professor">
+              <img class="sprint-member-photo" src="assets/sprint-professor.png" alt="Alex Junho Lee" loading="lazy">
+              <div>
+                <div class="sprint-member-name">Alex Junho Lee <span lang="ko">(이준호 / 李俊昊)</span></div>
+                <div class="sprint-member-meta">Assistant Professor, Department of Mechanical Systems Engineering</div>
+                <div class="sprint-member-meta">Renaissance Plaza Room 314 · <a href="mailto:alexlee@sm.ac.kr">alexlee@sm.ac.kr</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="sprint-member-group">
+          <h2 class="sprint-member-group-title">Graduate Students <span class="sprint-member-meta">(Master’s Course)</span></h2>
+          <div class="sprint-member-grid">
+            <article class="sprint-member-card">
+              <img class="sprint-member-photo" src="assets/sprint-member-placeholder.png" alt="Graduate student position to be announced" loading="lazy">
+              <div><div class="sprint-member-name">TBD</div></div>
+            </article>
+            <article class="sprint-member-card">
+              <img class="sprint-member-photo" src="assets/sprint-member-placeholder.png" alt="Graduate student position to be announced" loading="lazy">
+              <div><div class="sprint-member-name">TBD</div></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="sprint-member-group">
+          <h2 class="sprint-member-group-title">Undergraduate Researchers</h2>
+          <div class="sprint-member-grid">
+            <article class="sprint-member-card">
+              <img class="sprint-member-photo" src="assets/sprint-member-placeholder.png" alt="황진화 Jinhwa Hwang" loading="lazy">
+              <div>
+                <div class="sprint-member-name">황진화 Jinhwa Hwang</div>
+                <div class="sprint-member-meta"><span class="sprint-member-field">Research Interest</span><br>Autonomous Drones</div>
+                <div class="sprint-member-meta"><a href="mailto:jh0314hwang@sookmyung.ac.kr">jh0314hwang@sookmyung.ac.kr</a></div>
+              </div>
+            </article>
+            <article class="sprint-member-card">
+              <img class="sprint-member-photo" src="assets/sprint-member-navigation.png" alt="윤채현 Chaehyun Yoon" loading="lazy">
+              <div>
+                <div class="sprint-member-name">윤채현 Chaehyun Yoon</div>
+                <div class="sprint-member-meta"><span class="sprint-member-field">Research Interest</span><br>Navigation</div>
+                <div class="sprint-member-meta"><a href="mailto:yoonchaehyun@sookmyung.ac.kr">yoonchaehyun@sookmyung.ac.kr</a></div>
+              </div>
+            </article>
+            <article class="sprint-member-card">
+              <img class="sprint-member-photo" src="assets/sprint-member-placeholder.png" alt="김민서 Minseo Kim" loading="lazy">
+              <div>
+                <div class="sprint-member-name">김민서 Minseo Kim</div>
+                <div class="sprint-member-meta"><span class="sprint-member-field">Research Interest</span><br>3D Perception</div>
+                <div class="sprint-member-meta"><a href="mailto:shallwesit14743@sookmyung.ac.kr">shallwesit14743@sookmyung.ac.kr</a></div>
+              </div>
+            </article>
+            <article class="sprint-member-card">
+              <img class="sprint-member-photo" src="assets/sprint-member-placeholder.png" alt="김인아 Yina Kim" loading="lazy">
+              <div>
+                <div class="sprint-member-name">김인아 Yina Kim</div>
+                <div class="sprint-member-meta"><span class="sprint-member-field">Research Interest</span><br>3D Perception</div>
+                <div class="sprint-member-meta"><a href="mailto:nen10231@sookmyung.ac.kr">nen10231@sookmyung.ac.kr</a></div>
+              </div>
+            </article>
+            <article class="sprint-member-card">
+              <img class="sprint-member-photo" src="assets/sprint-member-placeholder.png" alt="김지현 Jihyeon Kim" loading="lazy">
+              <div>
+                <div class="sprint-member-name">김지현 Jihyeon Kim</div>
+                <div class="sprint-member-meta"><a href="mailto:kum280@sookmyung.ac.kr">kum280@sookmyung.ac.kr</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="sprint-member-group">
+          <h2 class="sprint-member-group-title">Previous Members</h2>
+          <ul class="sprint-alumni">
+            <li><strong>윤유리 Yuri Yoon</strong> · Understanding Structural Uncertainty via Language-based Prior · 2025.04–2026.02</li>
+            <li><strong>김홍준 Hongjun Kim</strong> (Hongik Univ.) · Autonomous robot exploration project · 2025.07–2025.09</li>
+            <li><strong>김수지 Sooji Kim</strong> · F1TENTH project and Campus dataset project · 2025.09–2026.06</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="sprint-projects-heading">Projects @ SPRINT Lab</h2>
+
+    <section class="sprint-category" id="sprint-navigation">
+      <h2 class="sprint-category-title">Navigation</h2>
+      <div class="sprint-list">
+        <article class="sprint-entry">
+          <figure class="sprint-figure">
+            <img src="assets/extreme-localization.jpg" alt="극한 환경에서 취득한 점군 지도와 이동 궤적" loading="lazy">
+          </figure>
+          <div class="sprint-body">
+            <div class="sprint-kicker">2026.04 – Present</div>
+            <h2 class="pub-title">극한 환경에서 강건한 위치인식</h2>
+            <dl class="sprint-people">
+              <dt>Participants</dt><dd>김민서, 김인아, 황진화</dd>
+              <dt>Status</dt><dd>To be submitted to ICRA 2027</dd>
+            </dl>
+          </div>
+        </article>
+        <article class="sprint-entry">
+          <figure class="sprint-figure sprint-gallery" aria-label="Any-robot Navigation 실험 자료">
+            <img src="assets/any-robot-platform.jpg" alt="카메라를 장착한 사족보행 로봇" loading="lazy">
+            <img src="assets/any-robot-camera-grid.jpg" alt="카메라 영상과 2D 점유 격자의 대응 화면" loading="lazy">
+            <img src="assets/any-robot-sensor-rig.jpg" alt="이동 로봇에 장착한 카메라 센서 구성" loading="lazy">
+            <img src="assets/any-robot-cart.jpg" alt="이동식 카트의 3차원 인식과 주행 화면" loading="lazy">
+          </figure>
+          <div class="sprint-body">
+            <div class="sprint-kicker">2025.07 – Present</div>
+            <h2 class="pub-title">Any-robot Navigation (without map)</h2>
+            <dl class="sprint-people">
+              <dt>Participants</dt><dd>김인아, 김홍준, 김수지, 김민서, 윤채현</dd>
+              <dt>Platform</dt><dd>Unitree Go2 (Quadruped), Stella N2 (Wheeled), UGOT (Multi-form)</dd>
+              <dt>Paper</dt><dd>“Cross-Modal Optimization on the Special Linear Group for Camera-Based Localization and Mapping in 2D Occupancy Grids,” under review in <em>International Journal of Control and Automation Systems (IJCAS)</em></dd>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="sprint-category" id="sprint-mapping">
+      <h2 class="sprint-category-title">Mapping</h2>
+      <div class="sprint-list">
+        <article class="sprint-entry">
+          <figure class="sprint-figure sprint-gallery" aria-label="Portable 3D Mapping Device 개발 자료">
+            <img src="assets/portable-mapping-device.jpg" alt="Portable 3D Mapping Device 시제품" loading="lazy">
+            <img src="assets/portable-mapping-cad.jpg" alt="Portable 3D Mapping Device CAD 모델" loading="lazy">
+            <img src="assets/portable-mapping-architecture.jpg" alt="Portable 3D Mapping Device 시스템 구성" loading="lazy">
+            <img src="assets/portable-mapping-interface.jpg" alt="Portable 3D Mapping Device 기록 인터페이스" loading="lazy">
+          </figure>
+          <div class="sprint-body">
+            <div class="sprint-kicker">2025.09 – Present</div>
+            <h2 class="pub-title">Portable 3D Mapping Device</h2>
+            <dl class="sprint-people">
+              <dt>Participants</dt><dd>윤유리, 김수지, 황진화</dd>
+              <dt>Program</dt><dd>창의적자산 실용화지원 (Bridge 3.0) 사업 선정</dd>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="sprint-category" id="sprint-spatial-ai">
+      <h2 class="sprint-category-title">Spatial AI</h2>
+      <div class="sprint-list">
+        <article class="sprint-entry">
+          <figure class="sprint-figure">
+            <img src="assets/uncertainty-knowability.jpg" alt="두 환경에서 관측한 점군 지도" loading="lazy">
+          </figure>
+          <div class="sprint-body">
+            <div class="sprint-kicker">2025.07 – Present</div>
+            <h2 class="pub-title">불확실성 속에서의 인식 가능성 연구</h2>
+            <dl class="sprint-people">
+              <dt>Participant</dt><dd>윤유리</dd>
+              <dt>Publications</dt>
+              <dd class="sprint-citations">
+                <span>“동적 환경에서의 강인한 점군 정합을 위한 시맨틱 기반 불확실성 모델링,” <em>한국로봇종합학술대회</em>, 2026</span>
+                <span>“언어 기반 네비게이션에서의 불확실성 재고,” <em>Journal of KRoS</em>, 2026</span>
+              </dd>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <p class="see-more"><a href="https://sites.google.com/sookmyung.ac.kr/sprint-lab/home" target="_blank" rel="noopener">SPRINT Lab · Home &amp; Information →</a></p>
+  </div>
+
   <!-- ─────────── Professional Activities ─────────── -->
   <div class="tab-panel" data-tab="activities">
     <h1 class="page-title">Professional Activities</h1>
@@ -720,6 +1080,7 @@ section:last-of-type { margin-bottom: 0; }
         <li><span class="date">2019</span><span class="content">Indoor SLAM in crowded indoor environments <em>과학기술정보통신부</em></span></li>
         <li><span class="date">2018</span><span class="content">Indoor SLAM under complex disaster <em>산업통상자원부</em></span></li>
       </ul>
+      <p class="see-more"><a href="#sprint-projects">See projects @ SPRINT Lab →</a></p>
     </section>
 
     <section>
@@ -805,6 +1166,7 @@ section:last-of-type { margin-bottom: 0; }
       <div class="section-label">Articles &amp; Interviews</div>
       <ul class="info-list">
         <li><span class="date">Interview</span><span class="content"><a href="https://www.irobotnews.com/news/articleView.html?idxno=40437">로봇신문 — '젊은 로봇 공학자'</a></span></li>
+        <li><span class="date">2026</span><span class="content">현대 SLAM과 Spatial AI 기술<em>로봇과 인간, 23권 1호 (여름호)</em></span></li>
         <li><span class="date">2022</span><span class="content">건축물 진단을 위한 안전 로봇 기술 동향 — ICROS 9월호</span></li>
         <li><span class="date">2021</span><span class="content">지능로보틱스분야 기술혁신위원회 보고서</span></li>
         <li><span class="date">2017</span><span class="content">4차산업혁명과 자율주행 보고서</span></li>
@@ -825,7 +1187,12 @@ section:last-of-type { margin-bottom: 0; }
 <script>
 (function() {
   'use strict';
-  var TABS = ['about', 'publications', 'activities'];
+  var TABS = ['about', 'publications', 'activities', 'sprint-projects'];
+  var TAB_TITLES = {
+    'publications': 'Publications',
+    'activities': 'Professional Activities',
+    'sprint-projects': 'SPRINT Lab'
+  };
   var SECTION_ALIASES = { 'teaching': 'activities' };
   var panels = document.querySelectorAll('.tab-panel');
 
@@ -853,7 +1220,7 @@ section:last-of-type { margin-bottom: 0; }
     } else {
       window.scrollTo(0, 0);
     }
-    document.title = (tab === 'about' ? '' : tab.charAt(0).toUpperCase() + tab.slice(1) + ' · ') + 'Alex Junho Lee';
+    document.title = (tab === 'about' ? '' : TAB_TITLES[tab] + ' · ') + 'Alex Junho Lee';
   }
 
   window.addEventListener('hashchange', activate);
