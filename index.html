@@ -43,7 +43,7 @@ body {
 a { color: var(--link); text-decoration: none; transition: color 0.12s; }
 a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', sans-serif;
   color: var(--text-heading);
   letter-spacing: -0.014em;
@@ -263,18 +263,18 @@ section:last-of-type { margin-bottom: 0; }
 .sprint-category { margin-bottom: 38px; }
 .sprint-category-title {
   font-family: 'SF Pro Display', -apple-system, sans-serif;
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
   color: var(--text-heading);
-  letter-spacing: -0.01em;
-  margin-bottom: 10px;
+  letter-spacing: -0.014em;
+  margin-bottom: 12px;
 }
 .sprint-entry {
   display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 24px;
+  grid-template-columns: 220px 1fr;
+  gap: 26px;
   align-items: center;
-  min-height: 126px;
+  min-height: 152px;
   padding: 18px 0;
   border-bottom: 1px solid var(--border-strong);
 }
@@ -283,7 +283,7 @@ section:last-of-type { margin-bottom: 0; }
   background: var(--bg-alt);
   border: 1px solid var(--border);
   overflow: hidden;
-  height: 112px;
+  height: 138px;
 }
 .sprint-figure img {
   display: block;
@@ -334,6 +334,89 @@ section:last-of-type { margin-bottom: 0; }
   gap: 5px;
 }
 .sprint-citations span { display: block; }
+.sprint-overview { margin-bottom: 66px; }
+.sprint-overview-figure {
+  margin: 0 0 46px;
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  overflow: hidden;
+}
+.sprint-overview-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.sprint-principles {
+  border-top: 1px solid var(--border-strong);
+}
+.sprint-statement {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  padding: 26px 0 30px;
+  border-bottom: 1px solid var(--border-strong);
+}
+.sprint-statement-label {
+  padding-top: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+.sprint-mission-row {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+.sprint-mission {
+  max-width: 700px;
+  margin: 0;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  color: var(--text-heading);
+}
+.sprint-vision-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px 32px;
+}
+.sprint-vision-item {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  margin: 0;
+}
+.sprint-vision-number {
+  padding-top: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.sprint-vision-copy {
+  font-size: 14.5px;
+  line-height: 1.58;
+  color: var(--text-muted);
+}
+.sprint-vision-copy strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 15.5px;
+  line-height: 1.4;
+  color: var(--text-heading);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
 .sprint-members {
   display: grid;
   gap: 40px;
@@ -362,7 +445,9 @@ section:last-of-type { margin-bottom: 0; }
   border-radius: 12px;
 }
 .sprint-member-card--professor {
-  grid-template-columns: 132px minmax(0, 1fr);
+  grid-template-columns: 1fr;
+  min-height: auto;
+  padding: 22px 24px;
 }
 .sprint-member-photo {
   display: block;
@@ -370,11 +455,6 @@ section:last-of-type { margin-bottom: 0; }
   height: 132px;
   object-fit: contain;
   object-position: center;
-}
-.sprint-member-card--professor .sprint-member-photo {
-  width: 132px;
-  height: 176px;
-  object-fit: cover;
 }
 .sprint-member-name {
   font-size: 15.5px;
@@ -412,14 +492,15 @@ section:last-of-type { margin-bottom: 0; }
   color: var(--text-heading);
   font-weight: 600;
 }
-.sprint-projects-heading {
+.sprint-section-title {
   font-size: 27px;
   font-weight: 600;
   letter-spacing: -0.018em;
-  margin: 66px 0 34px;
+  margin: 0 0 30px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--border);
 }
+.sprint-section-title--projects { margin-top: 66px; }
 .see-more {
   margin-top: 28px;
   font-size: 14.5px;
@@ -640,25 +721,30 @@ section:last-of-type { margin-bottom: 0; }
   .info-list .date { font-size: 12px; }
   .lab { padding: 20px; }
   .sprint-entry { grid-template-columns: 1fr; }
-  .sprint-figure { width: 180px; height: 112px; }
+  .sprint-figure { width: 220px; max-width: 100%; height: 138px; }
   .sprint-body { padding: 0 0 4px; }
+  .sprint-overview { margin-bottom: 52px; }
+  .sprint-overview-figure { margin-bottom: 34px; }
+  .sprint-statement { grid-template-columns: 1fr; gap: 15px; padding: 22px 0 26px; }
+  .sprint-statement-label { padding-top: 0; }
+  .sprint-mission { font-size: 17px; }
+  .sprint-vision-grid { grid-template-columns: 1fr; gap: 22px; }
   .sprint-members { gap: 34px; }
   .sprint-member-grid { grid-template-columns: 1fr; }
-  .sprint-member-card,
-  .sprint-member-card--professor {
+  .sprint-member-card {
     grid-template-columns: 98px minmax(0, 1fr);
     min-height: 136px;
     padding: 15px;
     gap: 15px;
   }
-  .sprint-member-photo,
-  .sprint-member-card--professor .sprint-member-photo {
+  .sprint-member-card--professor { grid-template-columns: 1fr; min-height: auto; padding: 18px; }
+  .sprint-member-photo {
     width: 98px;
     height: 120px;
     object-fit: contain;
   }
-  .sprint-member-card--professor .sprint-member-photo { object-fit: cover; }
-  .sprint-projects-heading { font-size: 24px; margin-top: 52px; }
+  .sprint-section-title { font-size: 24px; }
+  .sprint-section-title--projects { margin-top: 52px; }
 }
 </style>
 </head>
@@ -858,14 +944,53 @@ section:last-of-type { margin-bottom: 0; }
   <div class="tab-panel" data-tab="sprint-projects">
     <h1 class="page-title">SPRINT Lab</h1>
 
+    <section class="sprint-overview">
+      <figure class="sprint-overview-figure">
+        <img src="assets/sprint-situated-knowability.png" alt="Situated Knowability: mobile robots and world models for spatial and contextual perception" loading="eager">
+      </figure>
+
+      <h2 class="sprint-section-title">Mission &amp; Vision</h2>
+
+      <div class="sprint-principles">
+        <div class="sprint-statement">
+          <h3 class="sprint-statement-label">Our Lab's Mission</h3>
+          <div class="sprint-mission-row">
+            <span class="sprint-vision-number">00</span>
+            <p class="sprint-mission">To build an intelligence that understands what is observed, what remains uncertain, and what evidence is needed for reliable action.</p>
+          </div>
+        </div>
+
+        <div class="sprint-statement">
+          <h3 class="sprint-statement-label">Our Lab's Vision</h3>
+          <div class="sprint-vision-grid">
+            <div class="sprint-vision-item">
+              <span class="sprint-vision-number">01</span>
+              <p class="sprint-vision-copy"><strong>To build a scientific foundation</strong><span>for sensor-based understanding of real-world environments, grounded in observability, uncertainty, and spatial reasoning.</span></p>
+            </div>
+            <div class="sprint-vision-item">
+              <span class="sprint-vision-number">02</span>
+              <p class="sprint-vision-copy"><strong>To develop robot perception systems</strong><span>that can localize, map, recognize, and interact with the physical world while knowing the limits of their own perception.</span></p>
+            </div>
+            <div class="sprint-vision-item">
+              <span class="sprint-vision-number">03</span>
+              <p class="sprint-vision-copy"><strong>To advance spatial representations</strong><span>that support certifiable world claims, cross-modal reasoning, long-term memory, and operation under ambiguity and change.</span></p>
+            </div>
+            <div class="sprint-vision-item">
+              <span class="sprint-vision-number">04</span>
+              <p class="sprint-vision-copy"><strong>To define the principles</strong><span>that let robots identify what is observable, locate the boundary of reliable perception, and acquire the evidence needed for action.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section>
-      <div class="section-label">Members</div>
+      <h2 class="sprint-section-title">Members</h2>
       <div class="sprint-members">
         <div class="sprint-member-group">
-          <h2 class="sprint-member-group-title">Professor</h2>
+          <h3 class="sprint-member-group-title">Professor</h3>
           <div class="sprint-member-grid sprint-member-grid--professor">
             <article class="sprint-member-card sprint-member-card--professor">
-              <img class="sprint-member-photo" src="assets/sprint-professor.png" alt="Alex Junho Lee" loading="lazy">
               <div>
                 <div class="sprint-member-name">Alex Junho Lee <span lang="ko">(이준호 / 李俊昊)</span></div>
                 <div class="sprint-member-meta">Assistant Professor, Department of Mechanical Systems Engineering</div>
@@ -876,7 +1001,7 @@ section:last-of-type { margin-bottom: 0; }
         </div>
 
         <div class="sprint-member-group">
-          <h2 class="sprint-member-group-title">Graduate Students <span class="sprint-member-meta">(Master’s Course)</span></h2>
+          <h3 class="sprint-member-group-title">Graduate Students <span class="sprint-member-meta">(Master’s Course)</span></h3>
           <div class="sprint-member-grid">
             <article class="sprint-member-card">
               <img class="sprint-member-photo" src="assets/sprint-member-placeholder.png" alt="Graduate student position to be announced" loading="lazy">
@@ -890,7 +1015,7 @@ section:last-of-type { margin-bottom: 0; }
         </div>
 
         <div class="sprint-member-group">
-          <h2 class="sprint-member-group-title">Undergraduate Researchers</h2>
+          <h3 class="sprint-member-group-title">Undergraduate Researchers</h3>
           <div class="sprint-member-grid">
             <article class="sprint-member-card">
               <img class="sprint-member-photo" src="assets/sprint-member-placeholder.png" alt="황진화 Jinhwa Hwang" loading="lazy">
@@ -935,7 +1060,7 @@ section:last-of-type { margin-bottom: 0; }
         </div>
 
         <div class="sprint-member-group">
-          <h2 class="sprint-member-group-title">Previous Members</h2>
+          <h3 class="sprint-member-group-title">Previous Members</h3>
           <ul class="sprint-alumni">
             <li><strong>윤유리 Yuri Yoon</strong> · Understanding Structural Uncertainty via Language-based Prior · 2025.04–2026.02</li>
             <li><strong>김홍준 Hongjun Kim</strong> (Hongik Univ.) · Autonomous robot exploration project · 2025.07–2025.09</li>
@@ -945,10 +1070,10 @@ section:last-of-type { margin-bottom: 0; }
       </div>
     </section>
 
-    <h2 class="sprint-projects-heading">Projects @ SPRINT Lab</h2>
+    <h2 class="sprint-section-title sprint-section-title--projects">Projects</h2>
 
     <section class="sprint-category" id="sprint-navigation">
-      <h2 class="sprint-category-title">Navigation</h2>
+      <h3 class="sprint-category-title">Navigation</h3>
       <div class="sprint-list">
         <article class="sprint-entry">
           <figure class="sprint-figure">
@@ -956,7 +1081,7 @@ section:last-of-type { margin-bottom: 0; }
           </figure>
           <div class="sprint-body">
             <div class="sprint-kicker">2026.04 – Present</div>
-            <h2 class="pub-title">극한 환경에서 강건한 위치인식</h2>
+            <h4 class="pub-title">극한 환경에서 강건한 위치인식</h4>
             <dl class="sprint-people">
               <dt>Participants</dt><dd>김민서, 김인아, 황진화</dd>
               <dt>Status</dt><dd>To be submitted to ICRA 2027</dd>
@@ -972,7 +1097,7 @@ section:last-of-type { margin-bottom: 0; }
           </figure>
           <div class="sprint-body">
             <div class="sprint-kicker">2025.07 – Present</div>
-            <h2 class="pub-title">Any-robot Navigation (without map)</h2>
+            <h4 class="pub-title">(모든 로봇에 대한) 사전 정보 없는 길찾기 연구</h4>
             <dl class="sprint-people">
               <dt>Participants</dt><dd>김인아, 김홍준, 김수지, 김민서, 윤채현</dd>
               <dt>Platform</dt><dd>Unitree Go2 (Quadruped), Stella N2 (Wheeled), UGOT (Multi-form)</dd>
@@ -984,7 +1109,7 @@ section:last-of-type { margin-bottom: 0; }
     </section>
 
     <section class="sprint-category" id="sprint-mapping">
-      <h2 class="sprint-category-title">Mapping</h2>
+      <h3 class="sprint-category-title">Mapping</h3>
       <div class="sprint-list">
         <article class="sprint-entry">
           <figure class="sprint-figure sprint-gallery" aria-label="Portable 3D Mapping Device 개발 자료">
@@ -995,7 +1120,7 @@ section:last-of-type { margin-bottom: 0; }
           </figure>
           <div class="sprint-body">
             <div class="sprint-kicker">2025.09 – Present</div>
-            <h2 class="pub-title">Portable 3D Mapping Device</h2>
+            <h4 class="pub-title">초소형 일체형 정밀 매핑장비 제작</h4>
             <dl class="sprint-people">
               <dt>Participants</dt><dd>윤유리, 김수지, 황진화</dd>
               <dt>Program</dt><dd>창의적자산 실용화지원 (Bridge 3.0) 사업 선정</dd>
@@ -1006,7 +1131,7 @@ section:last-of-type { margin-bottom: 0; }
     </section>
 
     <section class="sprint-category" id="sprint-spatial-ai">
-      <h2 class="sprint-category-title">Spatial AI</h2>
+      <h3 class="sprint-category-title">Spatial AI</h3>
       <div class="sprint-list">
         <article class="sprint-entry">
           <figure class="sprint-figure">
@@ -1014,7 +1139,7 @@ section:last-of-type { margin-bottom: 0; }
           </figure>
           <div class="sprint-body">
             <div class="sprint-kicker">2025.07 – Present</div>
-            <h2 class="pub-title">불확실성 속에서의 인식 가능성 연구</h2>
+            <h4 class="pub-title">불확실성 속에서의 인식 가능성 연구</h4>
             <dl class="sprint-people">
               <dt>Participant</dt><dd>윤유리</dd>
               <dt>Publications</dt>
@@ -1028,7 +1153,7 @@ section:last-of-type { margin-bottom: 0; }
       </div>
     </section>
 
-    <p class="see-more"><a href="https://sites.google.com/sookmyung.ac.kr/sprint-lab/home" target="_blank" rel="noopener">SPRINT Lab · Home &amp; Information →</a></p>
+    <p class="see-more"><a href="https://sites.google.com/sookmyung.ac.kr/sprint-lab/home" target="_blank" rel="noopener">Google Site →</a></p>
   </div>
 
   <!-- ─────────── Professional Activities ─────────── -->
