@@ -521,6 +521,10 @@ section:last-of-type { margin-bottom: 0; }
   border-top: 1px solid var(--border-strong);
 }
 .sprint-alumni li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: baseline;
   padding: 10px 0;
   border-bottom: 1px solid var(--border);
   font-size: 13.5px;
@@ -530,6 +534,11 @@ section:last-of-type { margin-bottom: 0; }
 .sprint-alumni strong {
   color: var(--text-heading);
   font-weight: 600;
+}
+.sprint-alumni-current {
+  white-space: nowrap;
+  text-align: right;
+  color: var(--text-tertiary);
 }
 .sprint-section-title {
   font-size: 27px;
@@ -1106,9 +1115,9 @@ section:last-of-type { margin-bottom: 0; }
         <div class="sprint-member-group">
           <h3 class="sprint-member-group-title">Previous Members</h3>
           <ul class="sprint-alumni">
-            <li><strong>윤유리 Yuri Yoon</strong> · Understanding Structural Uncertainty via Language-based Prior · 2025.04–2026.02</li>
-            <li><strong>김홍준 Hongjun Kim</strong> (Hongik Univ.) · Autonomous robot exploration project · 2025.07–2025.09</li>
-            <li><strong>김수지 Sooji Kim</strong> · F1TENTH project and Campus dataset project · 2025.09–2026.06</li>
+            <li><span><strong>윤유리 Yuri Yoon</strong> · Understanding Structural Uncertainty via Language-based Prior · 2025.04–2026.02</span><span class="sprint-alumni-current">Current: UEL</span></li>
+            <li><span><strong>김홍준 Hongjun Kim</strong> (Hongik Univ.) · Autonomous robot exploration project · 2025.07–2025.09</span></li>
+            <li><span><strong>김수지 Sooji Kim</strong> · F1TENTH project and Campus dataset project · 2025.09–2026.06</span><span class="sprint-alumni-current">Current: KIST</span></li>
           </ul>
         </div>
       </div>
