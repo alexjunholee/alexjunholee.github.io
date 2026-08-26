@@ -49,28 +49,6 @@ h1, h2, h3, h4 {
   letter-spacing: -0.014em;
 }
 
-/* ─────────── Home icon (top-left, only on subpages) ─────────── */
-.home-link {
-  position: fixed;
-  top: 22px;
-  left: 26px;
-  z-index: 100;
-  width: 32px;
-  height: 32px;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: saturate(180%) blur(12px);
-  -webkit-backdrop-filter: saturate(180%) blur(12px);
-  border-radius: 10px;
-  transition: color 0.12s, background 0.12s;
-}
-.home-link:hover { color: var(--accent); background: rgba(255, 255, 255, 1); text-decoration: none; }
-.home-link svg { width: 20px; height: 20px; }
-body.subpage .home-link { display: flex; }
-
 /* ─────────── Body page-links (landing navigation) ─────────── */
 .page-links {
   list-style: none;
@@ -270,16 +248,27 @@ section:last-of-type { margin-bottom: 0; }
   border-bottom: 1px solid var(--border);
 }
 .sprint-page-heading .page-title { flex: 1; margin: 0; padding: 0; border: 0; }
+.sprint-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .sprint-site-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  background: var(--bg);
+  text-decoration: none;
+  width: 34px;
   font-size: 20px;
   line-height: 1;
-  text-decoration: none;
-  transform: translateY(1px);
 }
-.sprint-site-link:hover { text-decoration: none; }
+.sprint-site-link svg { width: 19px; height: 19px; }
+.sprint-site-link:hover { color: var(--accent); border-color: var(--border-strong); text-decoration: none; }
 .sprint-category-title {
   font-family: 'SF Pro Display', -apple-system, sans-serif;
   font-size: 18px;
@@ -484,9 +473,7 @@ section:last-of-type { margin-bottom: 0; }
   border-radius: 12px;
 }
 .sprint-member-card--professor {
-  grid-template-columns: 1fr;
-  min-height: auto;
-  padding: 22px 24px;
+  grid-template-columns: 112px minmax(0, 1fr);
 }
 .sprint-member-photo {
   display: block;
@@ -495,6 +482,32 @@ section:last-of-type { margin-bottom: 0; }
   object-fit: contain;
   object-position: center;
 }
+.sprint-member-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-bottom: 9px;
+}
+.sprint-member-name-row .sprint-member-name { margin-bottom: 0; }
+.sprint-member-home-label {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: var(--link);
+  background: rgba(0, 113, 227, 0.07);
+  border-radius: 8px;
+  text-decoration: none;
+}
+.sprint-member-home-label:hover {
+  color: var(--accent);
+  background: rgba(0, 113, 227, 0.13);
+  text-decoration: none;
+}
+.sprint-member-home-label svg { width: 16px; height: 16px; }
 .sprint-member-name {
   font-size: 15.5px;
   font-weight: 600;
@@ -756,7 +769,6 @@ section:last-of-type { margin-bottom: 0; }
 
 /* Responsive */
 @media (max-width: 720px) {
-  .home-link { top: 14px; left: 14px; width: 30px; height: 30px; }
   .container { padding: 48px 22px 48px; }
   .page-link-title { font-size: 19px; }
   .footer { padding: 24px 22px 32px; }
@@ -795,7 +807,7 @@ section:last-of-type { margin-bottom: 0; }
     padding: 15px;
     gap: 15px;
   }
-  .sprint-member-card--professor { grid-template-columns: 1fr; min-height: auto; padding: 18px; }
+  .sprint-member-card--professor { grid-template-columns: 98px minmax(0, 1fr); }
   .sprint-alumni li { grid-template-columns: 1fr; gap: 4px; }
   .sprint-alumni-current { justify-self: end; }
   .sprint-member-photo {
@@ -809,13 +821,6 @@ section:last-of-type { margin-bottom: 0; }
 </style>
 </head>
 <body>
-
-<a class="home-link" href="#about" aria-label="Home">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-    <polyline points="9 22 9 12 15 12 15 22"/>
-  </svg>
-</a>
 
 <div class="container">
 
@@ -1004,7 +1009,15 @@ section:last-of-type { margin-bottom: 0; }
   <div class="tab-panel" data-tab="sprint-projects">
     <div class="sprint-page-heading">
       <h1 class="page-title">SPRINT Lab</h1>
-      <a class="sprint-site-link" href="https://sites.google.com/sookmyung.ac.kr/sprint-lab/home" target="_blank" rel="noopener" aria-label="Open the SPRINT Lab Google Site" title="SPRINT Lab Google Site">🌐</a>
+      <div class="sprint-header-actions">
+        <a class="sprint-site-link" href="#about" aria-label="Open Alex Junho Lee's homepage" title="Personal homepage">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </a>
+        <a class="sprint-site-link" href="https://sites.google.com/sookmyung.ac.kr/sprint-lab/home" target="_blank" rel="noopener" aria-label="Open the SPRINT Lab Google Site" title="SPRINT Lab Google Site">🌐</a>
+      </div>
     </div>
 
     <section class="sprint-overview">
@@ -1054,8 +1067,20 @@ section:last-of-type { margin-bottom: 0; }
           <h3 class="sprint-member-group-title">Professor</h3>
           <div class="sprint-member-grid sprint-member-grid--professor">
             <article class="sprint-member-card sprint-member-card--professor">
+              <img class="sprint-member-photo" src="assets/sprint-member-alex.png" alt="Alex Junho Lee" loading="lazy">
               <div>
-                <div class="sprint-member-name">Alex Junho Lee <span lang="ko">(이준호 / 李俊昊)</span></div>
+                <div class="sprint-member-name-row">
+                  <div class="sprint-member-name">Alex Junho Lee <span lang="ko">(이준호 / 李俊昊)</span></div>
+                  <a class="sprint-member-home-label" href="#about" aria-label="Open Alex Junho Lee's homepage" title="Personal homepage">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="3" y="4" width="18" height="16" rx="2.5"/>
+                      <path d="M3 8h18"/>
+                      <circle cx="6.3" cy="6" r="0.6" fill="currentColor" stroke="none"/>
+                      <circle cx="8.8" cy="6" r="0.6" fill="currentColor" stroke="none"/>
+                      <path d="M10 15h5m0 0-2.2-2.2M15 15l-2.2 2.2"/>
+                    </svg>
+                  </a>
+                </div>
                 <div class="sprint-member-meta">Assistant Professor, Department of Mechanical Systems Engineering</div>
                 <div class="sprint-member-meta">Renaissance Plaza Room 314 · <img class="email-raster" src="assets/email-professor.png" alt="Email address"></div>
               </div>
@@ -1126,10 +1151,15 @@ section:last-of-type { margin-bottom: 0; }
         <div class="sprint-member-group">
           <h3 class="sprint-member-group-title">Previous Members</h3>
           <ul class="sprint-alumni">
-            <li><span><strong>김수지 Sooji Kim</strong> · F1TENTH project and Campus dataset project · 2025.09–2026.06</span><span class="sprint-alumni-current">Current: 한국과학기술연구원 (KIST)</span></li>
+            <li><span><strong>김수지 Sooji Kim</strong> · ROBORACER project and Campus dataset project · 2025.09–2026.06</span><span class="sprint-alumni-current">Current: 한국과학기술연구원 (KIST)</span></li>
             <li><span><strong>윤유리 Yuri Yoon</strong> · Understanding Structural Uncertainty via Language-based Prior · 2025.04–2026.02</span><span class="sprint-alumni-current">Current: 무인탐사연구소 (UEL)</span></li>
             <li><span><strong>김홍준 Hongjun Kim</strong> (Hongik Univ.) · Autonomous robot exploration project · 2025.07–2025.09</span></li>
           </ul>
+        </div>
+
+        <div class="sprint-member-group">
+          <h3 class="sprint-member-group-title">Alumni</h3>
+          <ul class="sprint-alumni"></ul>
         </div>
       </div>
     </section>
@@ -1257,11 +1287,11 @@ section:last-of-type { margin-bottom: 0; }
       <ul class="info-list">
         <li><span class="date">2026</span><span class="content">Google Cloud Education Grant (USD 5,000) <em>Google</em></span></li>
         <li><span class="date">2026</span><span class="content">미지 복잡환경 내 정밀 3차원 복원을 위한 탐사 기법 개발 <em>숙명여자대학교</em></span></li>
-        <li><span class="date">2026</span><span class="content">하수관로 맵핑 시스템 개발을 위한 측위 시스템 및 소프트웨어 통합 <em>용역</em></span></li>
+        <li><span class="date">2026</span><span class="content">하수관로 맵핑 시스템 개발을 위한 측위 시스템 및 소프트웨어 통합 <em>(주)이피에스이앤이</em></span></li>
         <li><span class="date">2025</span><span class="content">대규모 환경에서의 자율 로봇 운용을 위한 위치인식 기법 연구 <em>숙명여자대학교</em></span></li>
         <li><span class="date">2025</span><span class="content">창의적자산 실용화지원사업 (BRIDGE 3.0) <em>숙명여자대학교 산학협력단</em></span></li>
-        <li><span class="date">2022</span><span class="content">데이터 정합 및 Calibration에 관한 기술이전 <em>베어로보틱스코리아</em></span></li>
-        <li><span class="date">2022</span><span class="content">Robust (visual) place recognition for location authentication <em>중소벤처기업부</em></span></li>
+        <li><span class="date">2022</span><span class="content">데이터 정합 및 Calibration에 관한 기술이전 <em>(주)베어로보틱스코리아</em></span></li>
+        <li><span class="date">2022</span><span class="content">Robust (visual) place recognition for location authentication <em>중소벤처기업부, (주)엘핀</em></span></li>
         <li><span class="date">2021–2022</span><span class="content">Last-mile delivery robot in a crowded urban area <em>산업통상자원부</em></span></li>
         <li><span class="date">2021</span><span class="content">전장상황에서의 자율비행 기술경진대회 <em>국방부</em></span></li>
         <li><span class="date">2019–2020</span><span class="content">Long-term mapping of unstructured outdoor environment <em>국토교통부</em></span></li>
@@ -1273,6 +1303,7 @@ section:last-of-type { margin-bottom: 0; }
     <section>
       <div class="section-label">Awards</div>
       <ul class="info-list">
+        <li><span class="date">2026</span><span class="content"><em>ROBORACER</em> Autonomous Racing Competition — Finalist (15th of 55 Teams)</span></li>
         <li><span class="date">Dec 2025</span><span class="content">최우수상 (상금 100만원), 2025 SMU EDU Expo 캡스톤디자인경진대회 — 지도교수, 팀 MechX</span></li>
         <li><span class="date">Dec 2025</span><span class="content">최우수상 (상금 100만원), 2025 SMU EDU Expo 캡스톤디자인경진대회 — 지도교수, 팀 Combeenation</span></li>
         <li><span class="date">Nov 2025</span><span class="content">2025 Outstanding Young Researcher (우수신진연구자상), ICCAS</span></li>
@@ -1396,7 +1427,6 @@ section:last-of-type { margin-bottom: 0; }
     panels.forEach(function(p) {
       p.classList.toggle('active', p.getAttribute('data-tab') === tab);
     });
-    document.body.classList.toggle('subpage', tab !== 'about');
     if (scrollTarget) {
       var el = document.getElementById(scrollTarget);
       if (el) {
