@@ -300,6 +300,13 @@ section:last-of-type { margin-bottom: 0; }
   height: 100%;
   object-fit: cover;
 }
+.sprint-figure--contain img { object-fit: contain; }
+.sprint-entry--roboracer .sprint-figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sprint-entry--roboracer .sprint-figure img { width: 160px; height: 120px; }
 .sprint-gallery {
   display: grid;
   width: 300px;
@@ -1184,6 +1191,19 @@ section:last-of-type { margin-bottom: 0; }
             <dl class="sprint-people">
               <dt>Participants</dt><dd>김민서, 김인아, 황진화</dd>
               <dt>Paper</dt><dd>To be submitted to ICRA 2027</dd>
+            </dl>
+          </div>
+        </article>
+        <article class="sprint-entry sprint-entry--roboracer">
+          <figure class="sprint-figure sprint-figure--contain">
+            <img src="assets/roboracer-tenth.png" alt="TENTH 로고" loading="lazy">
+          </figure>
+          <div class="sprint-body">
+            <div class="sprint-kicker">2026</div>
+            <h4 class="pub-title">ROBORACER 자율주행 레이싱 대회</h4>
+            <dl class="sprint-people">
+              <dt>Participants</dt><dd>윤채현, 김지현</dd>
+              <dt>Result</dt><dd>Finalist (15th of 55 Teams)</dd>
             </dl>
           </div>
         </article>
