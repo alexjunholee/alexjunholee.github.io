@@ -239,6 +239,7 @@ section:last-of-type { margin-bottom: 0; }
   border-top: 1px solid var(--border-strong);
 }
 .sprint-category { margin-bottom: 38px; }
+.page-heading,
 .sprint-page-heading {
   display: flex;
   align-items: center;
@@ -247,12 +248,15 @@ section:last-of-type { margin-bottom: 0; }
   padding-bottom: 14px;
   border-bottom: 1px solid var(--border);
 }
+.page-heading .page-title,
 .sprint-page-heading .page-title { flex: 1; margin: 0; padding: 0; border: 0; }
+.page-header-actions,
 .sprint-header-actions {
   display: flex;
   align-items: center;
   gap: 8px;
 }
+.page-action-link,
 .sprint-site-link {
   display: inline-flex;
   align-items: center;
@@ -267,7 +271,9 @@ section:last-of-type { margin-bottom: 0; }
   font-size: 20px;
   line-height: 1;
 }
+.page-action-link svg,
 .sprint-site-link svg { width: 19px; height: 19px; }
+.page-action-link:hover,
 .sprint-site-link:hover { color: var(--accent); border-color: var(--border-strong); text-decoration: none; }
 .sprint-category-title {
   font-family: 'SF Pro Display', -apple-system, sans-serif;
@@ -882,35 +888,40 @@ section:last-of-type { margin-bottom: 0; }
           <div class="project-title">Spatial AI 로보틱스 가이드</div>
           <div class="project-desc">로보틱스 입문자를 위한 Spatial AI 인터랙티브 가이드</div>
         </a>
+        <a class="project" href="https://alexjunholee.github.io/sensor-fusion-guide/guide.html">
+          <div class="project-tag">Robotics</div>
+          <div class="project-title">센서 퓨전 심화 가이드</div>
+          <div class="project-desc">SLAM을 위한 센서 융합 심화 레퍼런스</div>
+        </a>
         <a class="project" href="https://alexjunholee.github.io/ai-research-practice/">
-          <div class="project-tag">AI Research</div>
+          <div class="project-tag">Robotics</div>
           <div class="project-title">AI와 로봇 연구하기</div>
           <div class="project-desc">연구자가 AI agent와 함께 작업하기 위한 하네스 가이드</div>
         </a>
         <a class="project" href="https://alexjunholee.github.io/slam-history-book/guide.html">
-          <div class="project-tag">SLAM History</div>
+          <div class="project-tag">BOOKS</div>
           <div class="project-title">SLAM History Book</div>
           <div class="project-desc">Spatial AI 연구자를 위한 역사서</div>
         </a>
-        <a class="project" href="https://alexjunholee.github.io/sensor-fusion-guide/guide.html">
-          <div class="project-tag">Sensor Fusion</div>
-          <div class="project-title">센서 퓨전 심화 가이드</div>
-          <div class="project-desc">SLAM을 위한 센서 융합 심화 레퍼런스</div>
+        <a class="project" href="https://github.com/SLAM-Handbook-contributors/slam-handbook-kor" target="_blank" rel="noopener">
+          <div class="project-tag">BOOKS</div>
+          <div class="project-title">Handbook on SLAM (kor)</div>
+          <div class="project-desc">The SLAM Handbook 한국어판</div>
+        </a>
+        <a class="project" href="https://alexjunholee.github.io/university-math/">
+          <div class="project-tag">BOOKS</div>
+          <div class="project-title">대학수학 종합서</div>
+          <div class="project-desc">엔지니어링을 위한 수학 기초</div>
         </a>
         <a class="project" href="https://alexjunholee.github.io/research-notes/guide.html">
-          <div class="project-tag">Research</div>
+          <div class="project-tag">LIFE</div>
           <div class="project-title">Research Notes</div>
           <div class="project-desc">연구란 무엇인가</div>
         </a>
         <a class="project" href="https://alexjunholee.github.io/grad-notes/guide.html">
-          <div class="project-tag">Grad Life</div>
+          <div class="project-tag">LIFE</div>
           <div class="project-title">Grad Notes</div>
           <div class="project-desc">대학원이란 무엇인가</div>
-        </a>
-        <a class="project" href="https://alexjunholee.github.io/university-math/">
-          <div class="project-tag">Mathematics</div>
-          <div class="project-title">대학수학 종합 레퍼런스</div>
-          <div class="project-desc">이공계 학부생을 위한 수학 종합 레퍼런스</div>
         </a>
       </div>
     </section>
@@ -918,7 +929,17 @@ section:last-of-type { margin-bottom: 0; }
 
   <!-- ─────────── Publications ─────────── -->
   <div class="tab-panel" data-tab="publications">
-    <h1 class="page-title">Publications</h1>
+    <div class="page-heading">
+      <h1 class="page-title">Publications</h1>
+      <div class="page-header-actions">
+        <a class="page-action-link" href="#about" aria-label="Open Alex Junho Lee's homepage" title="Personal homepage">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </a>
+      </div>
+    </div>
 
     <div class="pub-year">2026</div>
     <article class="pub">
@@ -1276,7 +1297,17 @@ section:last-of-type { margin-bottom: 0; }
 
   <!-- ─────────── Professional Activities ─────────── -->
   <div class="tab-panel" data-tab="activities">
-    <h1 class="page-title">Professional Activities</h1>
+    <div class="page-heading">
+      <h1 class="page-title">Professional Activities</h1>
+      <div class="page-header-actions">
+        <a class="page-action-link" href="#about" aria-label="Open Alex Junho Lee's homepage" title="Personal homepage">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </a>
+      </div>
+    </div>
 
     <section>
       <div class="section-label">Education</div>
@@ -1361,11 +1392,11 @@ section:last-of-type { margin-bottom: 0; }
         </li>
         <li>
           <span class="course-name">CAD &amp; 3D Printing</span>
-          <span class="course-terms"><span>Fall 2025</span></span>
+          <span class="course-terms"><span>Fall 2026</span><span>Fall 2025</span></span>
         </li>
         <li>
           <span class="course-name">Graduate Numerical Analysis</span>
-          <span class="course-terms"><span>Fall 2025</span></span>
+          <span class="course-terms"><span>Fall 2026</span><span>Fall 2025</span></span>
         </li>
       </ul>
     </section>
@@ -1375,18 +1406,18 @@ section:last-of-type { margin-bottom: 0; }
 
       <div class="subsection-label">Associate Editor</div>
       <ul class="plain-list">
-        <li>IEEE Robotics and Automation Letters (RA-L), 2026–Present</li>
-        <li>IEEE International Conference on Robotics and Automation (ICRA)</li>
+        <li>IEEE Robotics and Automation Letters (RA-L), 2026~</li>
+        <li>IEEE International Conference on Robotics and Automation (ICRA), 2026~</li>
       </ul>
 
       <div class="subsection-label">Editor</div>
       <ul class="plain-list">
-        <li>IEEE International Conference on Ubiquitous Robots (UR), 2025 &amp; 2026</li>
+        <li>IEEE International Conference on Ubiquitous Robots (UR), 2025~</li>
       </ul>
 
       <div class="subsection-label">Guest Editor</div>
       <ul class="plain-list">
-        <li>International Journal of Control, Automation, and Systems (IJCAS), 2025–2026</li>
+        <li>International Journal of Control, Automation, and Systems (IJCAS), 2025~</li>
       </ul>
 
       <div class="subsection-label">Session Chair</div>
@@ -1399,17 +1430,17 @@ section:last-of-type { margin-bottom: 0; }
         IEEE T-IV <span class="sep">&middot;</span> T-ASE <span class="sep">&middot;</span> RA-L <span class="sep">&middot;</span> RAS <span class="sep">&middot;</span> Neurocomputing <span class="sep">&middot;</span> ICRA <span class="sep">&middot;</span> IROS <span class="sep">&middot;</span> UR <span class="sep">&middot;</span> JIST
       </p>
 
-      <div class="subsection-label">Outreach</div>
+      <div class="subsection-label">Instructor</div>
       <ul class="plain-list">
-        <li>Instructor, KAIST Global Center for Gifted Children, Mar. 2015 – Dec. 2018</li>
+        <li>KAIST Global Center for Gifted Children, Mar. 2015 – Dec. 2018</li>
       </ul>
     </section>
 
     <section>
       <div class="section-label">Articles &amp; Interviews</div>
       <ul class="info-list">
-        <li><span class="date">Interview</span><span class="content"><a href="https://www.irobotnews.com/news/articleView.html?idxno=40437">로봇신문 — '젊은 로봇 공학자'</a></span></li>
         <li><span class="date">2026</span><span class="content">현대 SLAM과 Spatial AI 기술<em>한국로봇학회 학술지 《로봇과 인간》, 23권 1호 (여름호)</em></span></li>
+        <li><span class="date">2025</span><span class="content"><a href="https://www.irobotnews.com/news/articleView.html?idxno=40437">로봇신문 인터뷰 - '젊은 로봇 공학자'</a></span></li>
         <li><span class="date">2022</span><span class="content">건축물 진단을 위한 안전 로봇 기술 동향<em>제어로봇시스템학회지, 9월호</em></span></li>
         <li><span class="date">2021</span><span class="content">지능로보틱스분야 기술혁신위원회 보고서</span></li>
         <li><span class="date">2017</span><span class="content">4차산업혁명과 자율주행 보고서</span></li>
