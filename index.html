@@ -692,6 +692,8 @@ section:last-of-type { margin-bottom: 0; }
   transition: border-color 0.15s;
 }
 .project:hover { border-color: var(--accent); text-decoration: none; }
+.project--static { cursor: default; }
+.project--static:hover { border-color: var(--border); }
 .project-tag {
   font-size: 11px;
   font-weight: 600;
@@ -923,6 +925,11 @@ section:last-of-type { margin-bottom: 0; }
           <div class="project-title">Grad Notes</div>
           <div class="project-desc">대학원이란 무엇인가</div>
         </a>
+        <article class="project project--static">
+          <div class="project-tag">LIFE</div>
+          <div class="project-title">Just Notes</div>
+          <div class="project-desc">우리는 무엇인가</div>
+        </article>
       </div>
     </section>
   </div>
