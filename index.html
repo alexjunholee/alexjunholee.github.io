@@ -965,6 +965,124 @@ section:last-of-type { margin-bottom: 0; }
   font-weight: 600;
   letter-spacing: -0.01em;
 }
+.sprint-research-outline {
+  max-width: 820px;
+}
+.sprint-research-intro {
+  margin-bottom: 70px;
+}
+.sprint-research-kicker {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--text-tertiary);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.sprint-research-intro h2 {
+  margin: 0 0 22px;
+  color: var(--text-heading);
+  font-size: clamp(40px, 6vw, 62px);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -.035em;
+}
+.sprint-research-question {
+  max-width: 780px;
+  margin: 0 0 24px;
+  color: var(--text-heading);
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(24px, 3.5vw, 34px);
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -.025em;
+}
+.sprint-research-lede {
+  max-width: 720px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+.sprint-research-section {
+  margin-bottom: 70px;
+}
+.sprint-research-section-heading {
+  margin: 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-strong);
+  color: var(--text-heading);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -.022em;
+}
+.sprint-research-axis {
+  display: grid;
+  grid-template-columns: 68px minmax(0, 1fr);
+  gap: 18px;
+  padding: 30px 0 32px;
+  border-bottom: 1px solid var(--border);
+}
+.sprint-research-number {
+  padding-top: 6px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  font-variant-numeric: tabular-nums;
+}
+.sprint-research-term {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+.sprint-research-axis h3,
+.sprint-research-line h3 {
+  margin: 0;
+  color: var(--text-heading);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -.018em;
+}
+.sprint-research-axis p {
+  max-width: 680px;
+  margin: 9px 0 0;
+  color: var(--text-muted);
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+.sprint-research-lines {
+  border-bottom: 1px solid var(--border-strong);
+}
+.sprint-research-line {
+  display: grid;
+  grid-template-columns: minmax(220px, .72fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sprint-research-line:last-child { border-bottom: 0; }
+.sprint-research-line p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14.5px;
+  line-height: 1.58;
+}
+.sprint-research-links {
+  display: flex;
+  gap: 22px;
+  margin: 25px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+}
 .sprint-members {
   display: grid;
   gap: 40px;
@@ -1730,6 +1848,20 @@ section:last-of-type { margin-bottom: 0; }
   .sprint-statement-label { padding-top: 0; }
   .sprint-mission { font-size: 17px; }
   .sprint-vision-grid { grid-template-columns: 1fr; gap: 22px; }
+  .sprint-research-intro,
+  .sprint-research-section { margin-bottom: 52px; }
+  .sprint-research-lede { font-size: 16px; line-height: 1.65; }
+  .sprint-research-axis {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 12px;
+    padding: 24px 0 26px;
+  }
+  .sprint-research-line {
+    grid-template-columns: 1fr;
+    gap: 7px;
+    padding: 20px 0;
+  }
+  .sprint-research-links { flex-direction: column; gap: 8px; }
   .sprint-members { gap: 34px; }
   .sprint-member-grid { grid-template-columns: 1fr; }
   .sprint-member-card {
@@ -2003,7 +2135,8 @@ section:last-of-type { margin-bottom: 0; }
         <div class="sprint-lab-nav-scroll">
           <a class="sprint-lab-nav-link" data-sprint-nav="lab" href="#sprint-lab">SPRINT Lab</a>
           <a class="sprint-lab-nav-link" href="#about">Professor</a>
-          <a class="sprint-lab-nav-link" data-sprint-nav="members" href="#sprint-members">Members</a>
+          <a class="sprint-lab-nav-link" data-sprint-nav="research" href="#sprint-research">Research</a>
+          <a class="sprint-lab-nav-link" data-sprint-nav="members" href="#sprint-members">Students</a>
           <a class="sprint-lab-nav-link" data-sprint-nav="projects" href="#sprint-work">Projects</a>
         </div>
       </div>
@@ -2249,9 +2382,75 @@ section:last-of-type { margin-bottom: 0; }
     </section>
     </div>
 
+    <div class="sprint-subpage" data-sprint-page="research" hidden>
+      <header class="sprint-subpage-heading">
+        <h1 id="sprint-research-title">Research</h1>
+      </header>
+      <section class="sprint-research-outline" aria-labelledby="sprint-research-title">
+        <div class="sprint-research-intro">
+          <span class="sprint-research-kicker">Research Framework</span>
+          <h2>Situated Knowability</h2>
+          <p class="sprint-research-question">What can a robot know about the physical world, from where it stands, and at what cost?</p>
+          <p class="sprint-research-lede">A robot never observes the world from a neutral point. What it can know depends on its body, sensors, viewpoint, prior knowledge, available computation, time, and the cost of being wrong. Situated Knowability is the working frame that connects our research in localization, mapping, recognition, spatial memory, and active perception. Rather than asking whether an entire world model is correct, we ask which task-relevant claims are supported well enough for action.</p>
+        </div>
+
+        <div class="sprint-research-section" aria-labelledby="sprint-research-questions-title">
+          <h2 class="sprint-research-section-heading" id="sprint-research-questions-title">Three connected questions</h2>
+          <article class="sprint-research-axis">
+            <span class="sprint-research-number">01</span>
+            <div>
+              <span class="sprint-research-term">Observability &amp; certifiability</span>
+              <h3>What is knowable now?</h3>
+              <p>We study which claims about pose, place, geometry, semantics, or traversability can be supported by the evidence currently available to a robot. This includes unobservable modes, geometric degeneracy, cross-modal ambiguity, and uncertainty that remains after inference.</p>
+            </div>
+          </article>
+          <article class="sprint-research-axis">
+            <span class="sprint-research-number">02</span>
+            <div>
+              <span class="sprint-research-term">Value of information &amp; active perception</span>
+              <h3>What evidence should the robot acquire next?</h3>
+              <p>A new viewpoint, measurement, contact, prior, or computation can change what is knowable. We study how a robot should choose among them when time, energy, compute, motion, and risk are limited.</p>
+            </div>
+          </article>
+          <article class="sprint-research-axis">
+            <span class="sprint-research-number">03</span>
+            <div>
+              <span class="sprint-research-term">Validity over time</span>
+              <h3>When should knowledge be checked again?</h3>
+              <p>Maps and spatial memories lose validity as environments and operating conditions change. We study what remains reliable, what has become stale, and what must be observed again for long-term or multi-robot operation.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="sprint-research-section" aria-labelledby="sprint-research-lines-title">
+          <span class="sprint-research-kicker">Research Lines</span>
+          <h2 class="sprint-research-section-heading" id="sprint-research-lines-title">How the work connects</h2>
+          <div class="sprint-research-lines">
+            <article class="sprint-research-line">
+              <h3>Localization &amp; mapping under ambiguity</h3>
+              <p>Cross-modal pose constraints, degenerate geometry, robust state estimation, and occupancy mapping.</p>
+            </article>
+            <article class="sprint-research-line">
+              <h3>Recognition across conditions</h3>
+              <p>Place identity across sensors, visibility, viewpoint, environment, and time.</p>
+            </article>
+            <article class="sprint-research-line">
+              <h3>Spatial memory &amp; change</h3>
+              <p>Determining which parts of a stored world remain usable and which require updating or renewed evidence.</p>
+            </article>
+            <article class="sprint-research-line">
+              <h3>Active evidence acquisition</h3>
+              <p>Selecting viewpoints, sensing modalities, priors, and computation that add useful evidence for the task.</p>
+            </article>
+          </div>
+          <p class="sprint-research-links"><a href="#publications">Publications →</a><a href="#sprint-work">Current projects →</a></p>
+        </div>
+      </section>
+    </div>
+
     <div class="sprint-subpage" data-sprint-page="members" hidden>
       <header class="sprint-subpage-heading">
-        <h1 id="sprint-members-title">Members</h1>
+        <h1 id="sprint-members-title">Students</h1>
       </header>
     <section aria-labelledby="sprint-members-title">
       <div class="sprint-members">
@@ -3140,12 +3339,14 @@ exec .venv/bin/python arxiv_local.py</code></pre>
   var LAB_ROUTES = {
     'sprint-projects': 'lab',
     'sprint-lab': 'lab',
+    'sprint-research': 'research',
     'sprint-members': 'members',
     'sprint-work': 'projects'
   };
   var LAB_TITLES = {
     'lab': 'SPRINT Lab',
-    'members': 'Members · SPRINT Lab',
+    'research': 'Research · SPRINT Lab',
+    'members': 'Students · SPRINT Lab',
     'projects': 'Projects · SPRINT Lab'
   };
   var SECTION_ALIASES = { 'teaching': 'activities' };
