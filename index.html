@@ -967,6 +967,7 @@ section:last-of-type { margin-bottom: 0; }
 }
 .sprint-research-outline {
   max-width: 900px;
+  word-break: keep-all;
 }
 .sprint-research-intro {
   max-width: 800px;
@@ -989,6 +990,7 @@ section:last-of-type { margin-bottom: 0; }
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -.03em;
+  text-wrap: balance;
 }
 .sprint-research-lede {
   max-width: 760px;
@@ -996,6 +998,7 @@ section:last-of-type { margin-bottom: 0; }
   color: var(--text-muted);
   font-size: 18px;
   line-height: 1.65;
+  text-wrap: pretty;
 }
 .sprint-research-axes {
   border-top: 1px solid var(--border-strong);
@@ -1015,12 +1018,14 @@ section:last-of-type { margin-bottom: 0; }
   font-weight: 600;
   line-height: 1.22;
   letter-spacing: -.025em;
+  text-wrap: balance;
 }
 .sprint-research-axis-heading p {
   margin: 0;
   color: var(--text-muted);
   font-size: 14.5px;
   line-height: 1.58;
+  text-wrap: pretty;
 }
 .sprint-research-axis-questions {
   border-top: 1px solid var(--border);
@@ -1032,6 +1037,7 @@ section:last-of-type { margin-bottom: 0; }
   color: var(--text-heading);
   font-size: 17px;
   line-height: 1.62;
+  text-wrap: pretty;
 }
 .sprint-research-connections {
   margin-top: 78px;
@@ -1047,44 +1053,63 @@ section:last-of-type { margin-bottom: 0; }
   font-weight: 600;
   line-height: 1.16;
   letter-spacing: -.028em;
+  text-wrap: balance;
 }
 .sprint-research-connections-heading p {
   margin: 0;
   color: var(--text-muted);
   font-size: 16px;
   line-height: 1.62;
+  text-wrap: pretty;
 }
 .sprint-research-connection-list {
   border-top: 1px solid var(--border-strong);
 }
 .sprint-research-connection-row {
   display: grid;
-  grid-template-columns: 270px minmax(0, 1fr);
+  grid-template-columns: 230px minmax(0, 1fr);
   gap: 38px;
   padding: 24px 0 26px;
   border-bottom: 1px solid var(--border);
 }
-.sprint-research-connection-row h4 {
+.sprint-research-connection-category h4 {
   margin: 0;
   color: var(--text-heading);
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: -.015em;
+  line-height: 1.35;
+  letter-spacing: -.02em;
 }
-.sprint-research-connection-copy p {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 15.5px;
-  line-height: 1.62;
-}
-.sprint-research-connection-axis {
-  display: block;
-  margin-top: 8px;
+.sprint-research-connection-projects {
+  list-style: none;
+  margin: 9px 0 0;
+  padding: 0;
   color: var(--text-tertiary);
+  font-size: 13px;
+  line-height: 1.58;
+}
+.sprint-research-connection-projects li + li {
+  margin-top: 3px;
+}
+.sprint-research-connection-question {
+  margin: 0;
+  padding-bottom: 15px;
+  color: var(--text-heading);
+  font-size: 15.5px;
+  line-height: 1.58;
+  text-wrap: pretty;
+}
+.sprint-research-connection-question + .sprint-research-connection-question {
+  padding-top: 15px;
+  border-top: 1px solid var(--border);
+}
+.sprint-research-connection-question strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-muted);
   font-size: 12.5px;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 .sprint-research-links {
   display: flex;
@@ -2430,36 +2455,46 @@ section:last-of-type { margin-bottom: 0; }
         <div class="sprint-research-connections">
           <div class="sprint-research-connections-heading">
             <span class="sprint-research-kicker">From Projects to Questions</span>
-            <h3>지금 하는 프로젝트는 어디에 놓이는가</h3>
-            <p>각 프로젝트는 당장 풀어야 할 문제에서 시작하지만 결과는 위의 질문으로 이어집니다.</p>
+            <h3>프로젝트에서 출발한 연구 질문</h3>
+            <p>현재 프로젝트는 Navigation, Mapping, Spatial AI로 나뉩니다. 각 분야에서 풀고 있는 문제는 두 연구 축의 질문으로 이어집니다.</p>
           </div>
           <div class="sprint-research-connection-list">
             <article class="sprint-research-connection-row">
-              <h4>극한 환경에서 강건한 위치인식</h4>
+              <div class="sprint-research-connection-category">
+                <h4>Navigation</h4>
+                <ul class="sprint-research-connection-projects">
+                  <li>극한 환경에서 강건한 위치인식</li>
+                  <li>ROBORACER 자율주행 레이싱</li>
+                  <li>(모든 로봇에 대한) 사전 정보 없는 길찾기</li>
+                </ul>
+              </div>
               <div class="sprint-research-connection-copy">
-                <p>센서가 불안정하고 공간 구조가 반복될 때에도 위치 추정을 어디까지 믿을 수 있는지 살펴봅니다.</p>
-                <span class="sprint-research-connection-axis">Spatial AI for Robots · Situated Knowability</span>
+                <p class="sprint-research-connection-question"><strong>Spatial AI for Robots</strong>센서와 로봇, 환경이 달라져도 위치를 찾고 안전하게 움직이려면 무엇을 믿어야 할까?</p>
+                <p class="sprint-research-connection-question"><strong>Situated Knowability</strong>현재 관측만으로 위치와 경로를 정하기 어렵다면 무엇을 더 확인해야 할까?</p>
               </div>
             </article>
             <article class="sprint-research-connection-row">
-              <h4>(모든 로봇에 대한) 사전 정보 없는 길찾기</h4>
+              <div class="sprint-research-connection-category">
+                <h4>Mapping</h4>
+                <ul class="sprint-research-connection-projects">
+                  <li>초소형 일체형 정밀 매핑장비 제작</li>
+                </ul>
+              </div>
               <div class="sprint-research-connection-copy">
-                <p>서로 다른 센서와 지도 표현을 연결해 처음 보는 로봇과 환경에서도 위치를 찾고 길을 고를 수 있는지 묻습니다.</p>
-                <span class="sprint-research-connection-axis">Spatial AI for Robots</span>
+                <p class="sprint-research-connection-question"><strong>Spatial AI for Robots</strong>여러 센서로 얻은 관측을 하나의 정확한 공간 정보로 어떻게 묶을 수 있을까?</p>
+                <p class="sprint-research-connection-question"><strong>Situated Knowability</strong>만든 지도를 어디까지 믿을 수 있고, 언제 다시 확인하거나 고쳐야 할까?</p>
               </div>
             </article>
             <article class="sprint-research-connection-row">
-              <h4>초소형 일체형 정밀 매핑장비 제작</h4>
-              <div class="sprint-research-connection-copy">
-                <p>한 장비에서 얻은 여러 센서 관측으로 오래 쓸 수 있는 공간 정보를 어떻게 만들지 다룹니다.</p>
-                <span class="sprint-research-connection-axis">Spatial AI for Robots · Situated Knowability</span>
+              <div class="sprint-research-connection-category">
+                <h4>Spatial AI</h4>
+                <ul class="sprint-research-connection-projects">
+                  <li>불확실성 속에서의 인식 가능성 연구</li>
+                </ul>
               </div>
-            </article>
-            <article class="sprint-research-connection-row">
-              <h4>불확실성 속에서의 인식 가능성 연구</h4>
               <div class="sprint-research-connection-copy">
-                <p>움직이는 물체나 모호한 언어 지시가 섞인 상황에서 무엇을 믿고 무엇을 다시 확인해야 하는지 연구합니다.</p>
-                <span class="sprint-research-connection-axis">Situated Knowability</span>
+                <p class="sprint-research-connection-question"><strong>Spatial AI for Robots</strong>움직이는 물체와 모호한 지시가 섞인 장면에서 무엇이 확실하고 무엇이 불확실할까?</p>
+                <p class="sprint-research-connection-question"><strong>Situated Knowability</strong>로봇이 알 수 있는 범위를 넓히려면 어디로 움직이고 무엇을 다시 봐야 할까?</p>
               </div>
             </article>
           </div>
