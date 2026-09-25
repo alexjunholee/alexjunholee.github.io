@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:opsz,wght@14..24,400;14..24,500;14..24,700&amp;display=swap">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -167,6 +168,28 @@ h1, h2, h3, h4 {
   background: var(--accent);
 }
 .sprint-subpage[hidden] { display: none !important; }
+.schedule-calendar { padding: 12px; border-radius: 16px; background: #f0f4f9; color: #1f1f1f; font-family: 'Google Sans', Helvetica, Arial, sans-serif; font-optical-sizing: auto; letter-spacing: normal; }
+.schedule-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: 25px repeat(4, minmax(130px, auto)); overflow: hidden; border-radius: 16px; background: #fff; }
+.schedule-grid[hidden] { display: none; }
+.schedule-weekday { padding-top: 6px; text-align: center; color: #444746; font-size: 11px; font-weight: 500; line-height: 20px; border-right: 1px solid #dde3ea; }
+.schedule-weekday:nth-child(5) { border-right: 0; }
+.schedule-day { min-width: 0; margin: 0; padding: 0 0 10px; border-right: 1px solid #dde3ea; border-bottom: 1px solid #dde3ea; }
+.schedule-day:nth-child(5n) { border-right: 0; }
+.schedule-day:nth-last-child(-n+5) { border-bottom: 0; }
+.schedule-day-number { display: table; min-width: 24px; height: 24px; margin: 0 auto 4px; padding: 0 4px; border: 0; color: #1f1f1f; font: 500 12px/24px 'Google Sans', Arial, sans-serif; letter-spacing: normal; text-align: center; }
+.schedule-day:not(:nth-child(-n+10)) .schedule-day-number { margin-top: 4px; }
+.schedule-day-number[aria-current="date"] { color: #fff; background: #0b57d0; border-radius: 50%; }
+.schedule-event { display: flex; align-items: baseline; gap: 0; min-width: 0; margin: 2px 4px 0; padding: 0 8px; border: 0; border-radius: 4px; color: #fff; background: #616161; font-size: 12px; font-weight: 700; line-height: 20px; white-space: nowrap; }
+.schedule-event-time { min-width: 0; }
+.schedule-event-time span { display: inline; }
+.schedule-status { margin: 0; padding: 32px 12px; color: #444746; font-size: 14px; }
+.schedule-calendar-link { display: inline-block; margin: 10px 4px 0; color: #0b57d0; font-size: 11px; line-height: 20px; }
+@media (max-width: 720px) {
+  .schedule-calendar { padding: 8px; border-radius: 16px; }
+  .schedule-grid { grid-template-rows: 25px repeat(4, minmax(112px, auto)); border-radius: 12px; }
+  .schedule-event { margin-right: 2px; margin-left: 2px; padding: 2px 4px; font-size: 11px; line-height: 16px; }
+  .schedule-event-time span { display: block; }
+}
 .sprint-subpage-heading {
   margin-bottom: 32px;
   padding: 8px 0 18px;
@@ -2176,6 +2199,7 @@ section:last-of-type { margin-bottom: 0; }
           <a class="sprint-lab-nav-link" data-sprint-nav="members" href="#sprint-members">Students</a>
           <a class="sprint-lab-nav-link" data-sprint-nav="projects" href="#sprint-work">Projects</a>
           <a class="sprint-lab-nav-link" data-sprint-nav="research" href="#sprint-research">Research</a>
+          <a class="sprint-lab-nav-link" data-sprint-nav="schedule" href="#schedule">Schedule</a>
         </div>
       </div>
     </nav>
@@ -3233,6 +3257,17 @@ exec .venv/bin/python arxiv_local.py</code></pre>
     </section>
     </div>
 
+    <section class="sprint-subpage" data-sprint-page="schedule" hidden aria-labelledby="schedule-heading">
+      <header class="sprint-subpage-heading">
+        <h1 id="schedule-heading">Schedule</h1>
+      </header>
+      <div class="schedule-calendar">
+      <p id="schedule-status" class="schedule-status" role="status">일정 불러오는 중…</p>
+      <div id="schedule-grid" class="schedule-grid" aria-label="4주 일정" hidden></div>
+      <a class="schedule-calendar-link" href="https://calendar.google.com/calendar/embed?src=alexjunholee%40gmail.com&amp;ctz=Asia%2FSeoul" target="_blank" rel="noopener">Google Calendar ↗</a>
+      </div>
+    </section>
+
   </div>
 
   <!-- ─────────── Professional Activities ─────────── -->
@@ -3417,19 +3452,107 @@ exec .venv/bin/python arxiv_local.py</code></pre>
     'sprint-lab': 'lab',
     'sprint-research': 'research',
     'sprint-members': 'members',
-    'sprint-work': 'projects'
+    'sprint-work': 'projects',
+    'schedule': 'schedule'
   };
   var LAB_TITLES = {
     'lab': 'SPRINT Lab',
     'research': 'Research · SPRINT Lab',
     'members': 'Students · SPRINT Lab',
-    'projects': 'Projects · SPRINT Lab'
+    'projects': 'Projects · SPRINT Lab',
+    'schedule': 'Schedule'
   };
   var SECTION_ALIASES = { 'teaching': 'activities' };
   var panels = document.querySelectorAll('.tab-panel');
   var sprintPages = document.querySelectorAll('[data-sprint-page]');
   var sprintNavLinks = document.querySelectorAll('[data-sprint-nav]');
   var footerUniversity = document.querySelector('.footer-university');
+
+  var scheduleRequest = null;
+  function loadSchedule() {
+    var grid = document.getElementById('schedule-grid');
+    if (!grid || scheduleRequest) return;
+    var notice = document.getElementById('schedule-status');
+    var now = Date.now();
+    var koreaNow = new Date(now + 9 * 3600000);
+    var today = new Date(Date.UTC(koreaNow.getUTCFullYear(), koreaNow.getUTCMonth(), koreaNow.getUTCDate()));
+    var monday = new Date(today);
+    monday.setUTCDate(monday.getUTCDate() - (monday.getUTCDay() + 6) % 7);
+    var mondayInstant = monday.getTime() - 9 * 3600000;
+    function pad(n) { return ('0' + n).slice(-2); }
+    function timeLabel(value) {
+      var d = new Date(value + 9 * 3600000);
+      return pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes());
+    }
+    notice.textContent = '일정 불러오는 중…';
+    notice.hidden = false;
+    grid.hidden = true;
+    scheduleRequest = fetch('schedule.json', {cache: 'no-store'})
+      .then(function(response) {
+        if (!response.ok) throw new Error('Schedule unavailable');
+        return response.json();
+      }).then(function(data) {
+        var generatedAt = Date.parse(data.generatedAt);
+        if (!isFinite(generatedAt) || now - generatedAt > 6 * 3600000 || generatedAt > now + 300000 ||
+            Date.parse(data.windowStart) > mondayInstant || Date.parse(data.windowEnd) < mondayInstant + 28 * 86400000 || !Array.isArray(data.busy)) {
+          throw new Error('Schedule unavailable');
+        }
+        var busy = data.busy.map(function(event) {
+          var start = Date.parse(event.start), end = Date.parse(event.end);
+          if (!isFinite(start) || !isFinite(end) || end <= start || typeof event.allDay !== 'boolean') throw new Error('Invalid interval');
+          return {start:start, end:end, allDay:event.allDay};
+        }).sort(function(a,b) { return a.start - b.start; });
+        grid.textContent = '';
+        ['월','화','수','목','금'].forEach(function(day) {
+          var label = document.createElement('div');
+          label.className = 'schedule-weekday';
+          label.textContent = day;
+          grid.appendChild(label);
+        });
+        for (var week = 0; week < 4; week++) {
+          for (var day = 0; day < 5; day++) {
+            var civil = new Date(monday.getTime() + (week * 7 + day) * 86400000);
+            var start = civil.getTime() - 9 * 3600000;
+            var end = start + 86400000;
+            var cell = document.createElement('section');
+            cell.className = 'schedule-day' + (civil < today ? ' schedule-day--past' : '');
+            cell.setAttribute('aria-label', (civil.getUTCMonth() + 1) + '월 ' + civil.getUTCDate() + '일');
+            var heading = document.createElement('h2');
+            heading.className = 'schedule-day-number';
+            heading.textContent = civil.getUTCDate() === 1 ? (civil.getUTCMonth() + 1) + '월 1일' : civil.getUTCDate();
+            if (civil.getTime() === today.getTime()) heading.setAttribute('aria-current', 'date');
+            cell.appendChild(heading);
+            var dayEvents = busy.filter(function(event) { return event.end > start && event.start < end; });
+            dayEvents.forEach(function(event) {
+              var item = document.createElement('div');
+              item.className = 'schedule-event';
+              var a = event.allDay ? '09:00' : timeLabel(Math.max(event.start, start));
+              var b = event.allDay ? '18:00' : (event.end >= end ? '24:00' : timeLabel(event.end));
+              item.setAttribute('aria-label', a + '부터 ' + b + '까지 바쁨');
+              var first = document.createElement('span');
+              first.textContent = a + ' - ';
+              var last = document.createElement('span');
+              last.textContent = b;
+              var label = document.createElement('span');
+              label.textContent = ' 바쁨';
+              var range = document.createElement('span');
+              range.className = 'schedule-event-time';
+              range.appendChild(first);
+              range.appendChild(last);
+              range.appendChild(label);
+              item.appendChild(range);
+              cell.appendChild(item);
+            });
+            grid.appendChild(cell);
+          }
+        }
+        notice.hidden = true;
+        grid.hidden = false;
+      }).catch(function() {
+        notice.textContent = '일정을 불러오지 못했습니다. 아래 Google Calendar에서 확인해 주세요.';
+        grid.hidden = true;
+      }).then(function() { scheduleRequest = null; });
+  }
 
   function activate() {
     var hash = window.location.hash.slice(1);
@@ -3474,6 +3597,7 @@ exec .venv/bin/python arxiv_local.py</code></pre>
         navScroller.scrollLeft = linkRight - navScroller.clientWidth;
       }
     }
+    if (activeSprintPage === 'schedule') loadSchedule();
     if (scrollTarget) {
       var el = document.getElementById(scrollTarget);
       if (el) {
@@ -3489,6 +3613,9 @@ exec .venv/bin/python arxiv_local.py</code></pre>
   }
 
   window.addEventListener('hashchange', activate);
+  window.setInterval(function() {
+    if (window.location.hash === '#schedule') loadSchedule();
+  }, 15 * 60 * 1000);
   activate();
 })();
 
