@@ -183,7 +183,6 @@ h1, h2, h3, h4 {
 .schedule-event-time { min-width: 0; }
 .schedule-event-time span { display: inline; }
 .schedule-status { margin: 0; padding: 32px 12px; color: #444746; font-size: 14px; }
-.schedule-calendar-link { display: inline-block; margin: 10px 4px 0; color: #0b57d0; font-size: 11px; line-height: 20px; }
 @media (max-width: 720px) {
   .schedule-calendar { padding: 8px; border-radius: 16px; }
   .schedule-grid { grid-template-rows: 25px repeat(4, minmax(112px, auto)); border-radius: 12px; }
@@ -3270,7 +3269,6 @@ exec .venv/bin/python arxiv_local.py</code></pre>
       <div class="schedule-calendar">
       <p id="schedule-status" class="schedule-status" role="status">일정 불러오는 중…</p>
       <div id="schedule-grid" class="schedule-grid" aria-label="4주 일정" hidden></div>
-      <a class="schedule-calendar-link" href="https://calendar.google.com/calendar/embed?src=alexjunholee%40gmail.com&amp;ctz=Asia%2FSeoul" target="_blank" rel="noopener">Google Calendar ↗</a>
       </div>
     </section>
 
@@ -3555,7 +3553,7 @@ exec .venv/bin/python arxiv_local.py</code></pre>
         notice.hidden = true;
         grid.hidden = false;
       }).catch(function() {
-        notice.textContent = '일정을 불러오지 못했습니다. 아래 Google Calendar에서 확인해 주세요.';
+        notice.textContent = '일정을 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.';
         grid.hidden = true;
       }).then(function() { scheduleRequest = null; });
   }
