@@ -2046,7 +2046,7 @@ section:last-of-type { margin-bottom: 0; }
         <a class="project" href="https://alexjunholee.github.io/ai-research-practice/">
           <div class="project-tag">Robotics</div>
           <div class="project-title">AI와 로봇 연구하기</div>
-          <div class="project-desc">AI와 함께 실험을 수행하고, 기록과 근거를 검증하는 연구 가이드</div>
+          <div class="project-desc">AI와 함께 실험하고 기록과 근거를 검증하는 연구 가이드</div>
         </a>
         <a class="project" href="https://alexjunholee.github.io/slam-history-book/guide.html">
           <div class="project-tag">BOOKS</div>
@@ -2462,7 +2462,7 @@ section:last-of-type { margin-bottom: 0; }
         <div class="sprint-research-intro">
           <span class="sprint-research-kicker">Research Questions</span>
           <h2>로봇 인식 연구는 앞으로<br class="sprint-research-break"> 어떤 질문에 답해야 할까?</h2>
-          <p class="sprint-research-lede">지금 진행 중인 프로젝트를 따라가면 두 가지 연구 축이 드러납니다.<br class="sprint-research-break"> 하나는 로봇이 센서로 본 장면을 얼마나 믿을 수 있는지 묻고<br class="sprint-research-break"> 다른 하나는 부족한 정보를 언제 어떻게 보충해야 하는지 묻습니다.</p>
+          <p class="sprint-research-lede">지금 진행 중인 프로젝트에서는 로봇이 센서로 본 장면을 얼마나 믿을 수 있는지,<br class="sprint-research-break"> 부족한 정보를 언제 어떻게 보충해야 하는지를 묻습니다.</p>
         </div>
 
         <div class="sprint-research-axes" aria-label="Research directions">
@@ -2484,8 +2484,8 @@ section:last-of-type { margin-bottom: 0; }
               <p>로봇이 지금 처한 조건에서 무엇을 알 수 있는지, 다음에는 무엇을 확인해야 하는지를 다룹니다.</p>
             </div>
             <div class="sprint-research-axis-questions">
-              <p>위치와 지도를 추정하는 데서 그치지 않고<br class="sprint-research-break"> 실제 세계에 관한 판단까지 믿을 수 있게 만들려면 무엇이 필요할까?</p>
-              <p>로봇이 지금 알 수 있는 것과 알 수 없는 것의 경계는 어디이며<br class="sprint-research-break"> 그 경계를 넓히려면 무엇을 더 관측해야 할까?</p>
+              <p>위치와 지도 추정에 더해<br class="sprint-research-break"> 실제 세계에 관한 판단까지 믿을 수 있게 만들려면 무엇이 필요할까?</p>
+              <p>로봇이 지금 알 수 있는 범위는 어디까지이며<br class="sprint-research-break"> 그 범위를 넓히려면 무엇을 더 관측해야 할까?</p>
               <p>오래 쓰거나 여러 로봇이 함께 쓰는 공간 지식은<br class="sprint-research-break"> 언제 다시 확인하고 어떻게 갱신하고 공유해야 할까?</p>
             </div>
           </section>
@@ -2495,7 +2495,7 @@ section:last-of-type { margin-bottom: 0; }
           <div class="sprint-research-connections-heading">
             <span class="sprint-research-kicker">From Projects to Questions</span>
             <h3>프로젝트에서 출발한 연구 질문</h3>
-            <p>현재 프로젝트는 Navigation, Mapping, Spatial AI로 나뉩니다.<br class="sprint-research-break"> 각 분야에서 풀고 있는 문제는 두 연구 축의 질문으로 이어집니다.</p>
+            <p>현재 프로젝트는 Navigation, Mapping, Spatial AI로 나뉩니다.<br class="sprint-research-break"> 각 분야에서 풀고 있는 문제는 위 연구 질문으로 이어집니다.</p>
           </div>
           <div class="sprint-research-connection-list">
             <article class="sprint-research-connection-row">
@@ -2532,7 +2532,7 @@ section:last-of-type { margin-bottom: 0; }
                 </ul>
               </div>
               <div class="sprint-research-connection-copy">
-                <p class="sprint-research-connection-question"><strong>Spatial AI for Robots</strong>움직이는 물체와 모호한 지시가 섞인 장면에서<br class="sprint-research-break"> 무엇이 확실하고 무엇이 불확실할까?</p>
+                <p class="sprint-research-connection-question"><strong>Spatial AI for Robots</strong>움직이는 물체와 모호한 지시가 섞인 장면에서<br class="sprint-research-break"> 어디까지 확실하다고 말할 수 있을까?</p>
                 <p class="sprint-research-connection-question"><strong>Situated Knowability</strong>로봇이 알 수 있는 범위를 넓히려면<br class="sprint-research-break"> 어디로 움직이고 무엇을 다시 봐야 할까?</p>
               </div>
             </article>
@@ -2745,7 +2745,7 @@ section:last-of-type { margin-bottom: 0; }
             <summary>셋업 가이드</summary>
             <div class="side-project-setup-body">
               <h4>개요</h4>
-              <p>Go2 Pro 내부 Ethernet을 Jetson Orin Nano Super에 직접 연결하고, Jetson에서 비공식 <a href="https://github.com/abizovnuralem/go2_ros2_sdk" target="_blank" rel="noopener">go2_ros2_sdk</a>를 실행한다. Go2에 SSH로 들어가는 구성은 아니다. Jetson의 유선 NIC를 로봇과 같은 대역으로 맞춘 뒤 WebRTC endpoint를 ROS 2 topic으로 변환한다.</p>
+              <p>Go2 Pro 내부 Ethernet을 Jetson Orin Nano Super에 직접 연결하고, Jetson에서 비공식 <a href="https://github.com/abizovnuralem/go2_ros2_sdk" target="_blank" rel="noopener">go2_ros2_sdk</a>를 실행한다. Go2에는 SSH로 접속하지 않는다. Jetson의 유선 NIC를 로봇과 같은 대역으로 맞춘 뒤 WebRTC endpoint를 ROS 2 topic으로 변환한다.</p>
               <p class="setup-route">Go2 Pro 내부 Ethernet ⇄ Jetson NIC · 192.168.123.99/24<br>찾아낸 ROBOT_IP → WebRTC → go2_ros2_sdk → ROS 2</p>
 
               <h4>준비물</h4>
@@ -2757,7 +2757,7 @@ section:last-of-type { margin-bottom: 0; }
                 <li>2심 전원선, 납땜 도구, 수축 튜브, 멀티미터</li>
               </ul>
 
-              <p class="setup-note"><strong>두 가지 실물 기준</strong> — 우리 Go2의 상판 내부 전원 포트는 12V로 실측했다. Jetson Orin Nano Super의 DC 입력 범위는 9–20V이므로 강압 회로는 쓰지 않는다. 로봇의 Ethernet IP는 고정값으로 넘겨짚지 않고 연결한 장비에서 직접 찾는다.</p>
+              <p class="setup-note"><strong>실측 기준</strong> — 우리 Go2의 상판 내부 전원 포트는 12V로 실측했다. Jetson Orin Nano Super의 DC 입력 범위는 9–20V이므로 강압 회로는 쓰지 않는다. 로봇의 Ethernet IP는 연결한 장비에서 직접 찾는다.</p>
 
               <ol class="setup-steps">
                 <li>
@@ -2786,7 +2786,7 @@ nc -vz ROBOT_IP 9991
 nc -vz ROBOT_IP 8081
 ip route get ROBOT_IP</code></pre>
                   <p>검색된 주소를 곧바로 고정값으로 믿지 않고, Go2를 껐다 켰을 때 사라졌다 다시 나타나는지 확인한다. 이후 명령의 <code>ROBOT_IP</code>에는 이 주소를 넣는다.</p>
-                  <p class="setup-check"><strong>통과 기준</strong> — Jetson에서 유선 NIC를 통해 확인한 로봇 IP에 접속할 수 있고 WebRTC signaling port 가운데 하나가 응답한다.</p>
+                  <p class="setup-check"><strong>통과 기준</strong> — Jetson에서 유선 NIC로 확인한 로봇 IP에 접속할 수 있고 WebRTC signaling port 가운데 하나가 응답한다.</p>
                 </li>
 
                 <li>
@@ -2850,7 +2850,7 @@ ros2 topic echo --once 실제_상태_TOPIC</code></pre>
             <summary>셋업 가이드</summary>
             <div class="side-project-setup-body">
               <h4>개요</h4>
-              <p>Slack에서 질문하면 nanobot이 로컬 LLM 머신을 거쳐 Obsidian vault의 논문 메모와 실험 기록을 읽어 답하도록 설정한다. GPU 모델을 특정할 필요는 없다. 사용할 머신의 VRAM에 맞춰 모델 크기와 양자화 수준을 고르면 된다. 설치할 때는 로컬 모델부터 띄우고 nanobot, vault, Slack 순서로 붙인다.</p>
+              <p>Slack에서 질문하면 nanobot이 로컬 LLM 머신을 거쳐 Obsidian vault의 논문 메모와 실험 기록을 읽어 답하도록 설정한다. GPU 종류와 상관없이 사용할 머신의 VRAM에 맞춰 모델 크기와 양자화 수준을 고르면 된다. 설치할 때는 로컬 모델부터 띄우고 nanobot, vault, Slack 순서로 붙인다.</p>
               <p class="setup-route">Slack → nanobot gateway → Ollama · quantized local LLM → Obsidian vault</p>
 
               <h4>준비물</h4>
@@ -2873,8 +2873,8 @@ curl http://127.0.0.1:11434/api/tags</code></pre>
 
                 <li>
                   <h4>VRAM에 맞춰 모델 크기와 양자화 수준 고르기</h4>
-                  <p>파라미터 수가 같아도 저장 정밀도에 따라 필요한 메모리가 달라진다. 같은 VRAM에 더 큰 모델을 올리려면 보통 <code>Q4_K_M</code>부터 본다. <code>Q8_0</code>은 메모리를 더 쓰는 대신 양자화 손실이 작고, <code>FP16</code>은 로컬 에이전트를 처음 띄울 때는 대개 비효율적이다. 모델 이름은 설치하는 날 다시 확인한다. 아래 태그는 2026년 8월 Ollama에 올라온 배포본을 기준으로 한 예다.</p>
-                  <p>현재 최신 Qwen 세대인 <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank" rel="noopener">Qwen3.8-27B</a>의 공식 Ollama Q4 파일은 18 GB다. 따라서 16 GB GPU에는 가중치부터 전부 들어가지 않는다. 이 모델을 그대로 쓰면 일부가 CPU로 내려가고, 전부 GPU에 올리려면 24 GB급이 필요하다. 16 GB에서 속도와 긴 context가 중요하면 9B Q4로 내려가는 편이 낫다.</p>
+                  <p>파라미터 수가 같아도 저장 정밀도에 따라 필요한 메모리가 달라진다. 같은 VRAM에 더 큰 모델을 올리려면 보통 <code>Q4_K_M</code>부터 본다. <code>Q8_0</code>은 메모리를 더 쓰는 대신 양자화 손실이 작다. <code>FP16</code>은 로컬 에이전트를 처음 띄울 때는 대개 비효율적이다. 모델 이름은 설치하는 날 다시 확인한다. 아래 태그는 2026년 8월 Ollama에 올라온 배포본을 기준으로 한 예다.</p>
+                  <p>2026년 8월에 나온 <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank" rel="noopener">Qwen3.8-27B</a>의 공식 Ollama Q4 파일은 18 GB다. 따라서 가중치만으로도 16 GB GPU 메모리를 넘는다. 이 모델을 그대로 쓰면 일부가 CPU로 내려가고, 전부 GPU에 올리려면 24 GB급이 필요하다. 16 GB에서 속도와 긴 context가 중요하면 9B Q4로 내려가는 편이 낫다.</p>
                   <div class="setup-table-wrap">
                     <table class="setup-table">
                       <thead>
@@ -2890,15 +2890,15 @@ curl http://127.0.0.1:11434/api/tags</code></pre>
                       </tbody>
                     </table>
                   </div>
-                  <p><a href="https://ollama.com/library/qwen3.8/tags" target="_blank" rel="noopener">Ollama 태그 목록</a>의 파일 크기는 실제 VRAM 사용량과 같지 않다. 가중치 외에도 context의 KV cache와 실행 메모리가 필요하다. 아래는 최신 세대 모델을 시험하는 예다. 16 GB에서는 CPU offload를 감수하고, 속도가 느리면 표의 9B 태그로 바꾼다.</p>
+                  <p><a href="https://ollama.com/library/qwen3.8/tags" target="_blank" rel="noopener">Ollama 태그 목록</a>의 파일 크기는 가중치 크기다. 실제 VRAM에는 가중치 외에도 context의 KV cache와 실행 메모리가 필요하다. 아래는 최신 세대 모델을 시험하는 예다. 16 GB에서는 CPU offload를 감수하고, 속도가 느리면 표의 9B 태그로 바꾼다.</p>
                   <pre><code>ollama pull qwen3.8:27b-q4_K_M
 ollama show qwen3.8:27b-q4_K_M
 ollama run qwen3.8:27b-q4_K_M</code></pre>
                   <p>짧은 질문에 답이 오면 <code>/bye</code>로 대화를 끝내고 적재 상태를 확인한다.</p>
                   <pre><code>ollama ps
 curl http://127.0.0.1:11434/api/ps</code></pre>
-                  <p><a href="https://docs.ollama.com/context-length" target="_blank" rel="noopener">Ollama context 안내</a>처럼 context를 늘리면 메모리 사용도 함께 늘어난다. 처음에는 4K로 시작해 8K, 16K 순으로 올린다. 16 GB에서 27B Q4를 쓰면 <code>ollama ps</code>에 CPU/GPU가 나뉘어 나오는 것이 정상이다. 전부 GPU에 올리고 싶거나 응답이 지나치게 느리면 9B Q4로 내려간다.</p>
-                  <p>공개 점수만 놓고 보면 Qwen3.8-27B는 Gemini 3.5 Flash와 비슷한 구간에 있다. Terminal-Bench 2.1은 73.0 대 76.2, SWE-bench Pro는 61.7 대 55.1, OSWorld-Verified는 84.3 대 78.4, CharXiv는 83.7 대 84.2다. 다만 <a href="https://huggingface.co/Qwen/Qwen3.8-27B#benchmark-results" target="_blank" rel="noopener">Qwen 결과</a>와 <a href="https://deepmind.google/models/model-cards/gemini-3-5-flash/" target="_blank" rel="noopener">Gemini 결과</a>는 실행 조건이 같지 않고, 16 GB용 저비트 양자화판을 직접 비교한 값도 아니다. 이 점수만으로 두 모델이 동급이라고 보거나 로컬에서 논문 메모를 찾고 실험 기록을 비교하는 데 충분하다고 판단할 수는 없다. 실제로 사용할 양자화판으로 뒤의 연구 맥락 확인 단계를 거쳐야 한다.</p>
+                  <p><a href="https://docs.ollama.com/context-length" target="_blank" rel="noopener">Ollama context 안내</a>에 나오듯 context를 늘리면 메모리 사용도 함께 늘어난다. 처음에는 4K로 시작해 8K, 16K 순으로 올린다. 16 GB에서 27B Q4를 쓰면 <code>ollama ps</code>에 CPU/GPU가 나뉘어 나오는 것이 정상이다. 전부 GPU에 올리고 싶거나 응답이 지나치게 느리면 9B Q4로 내려간다.</p>
+                  <p>공개 점수만 놓고 보면 Qwen3.8-27B는 Gemini 3.5 Flash와 비슷한 구간에 있다. Terminal-Bench 2.1은 73.0 대 76.2, SWE-bench Pro는 61.7 대 55.1, OSWorld-Verified는 84.3 대 78.4, CharXiv는 83.7 대 84.2다. 다만 <a href="https://huggingface.co/Qwen/Qwen3.8-27B#benchmark-results" target="_blank" rel="noopener">Qwen 결과</a>와 <a href="https://deepmind.google/models/model-cards/gemini-3-5-flash/" target="_blank" rel="noopener">Gemini 결과</a>는 실행 조건이 서로 다르고, 16 GB용 저비트 양자화판을 직접 비교한 값도 아니다. 로컬에서 논문 메모를 찾고 실험 기록을 비교하는 데 쓸 만한지는 실제로 사용할 양자화판으로 뒤의 연구 맥락 확인 단계를 거쳐 판단한다.</p>
                   <p class="setup-check"><strong>통과 기준</strong> — 선택한 태그와 양자화 수준이 <code>ollama show</code>에 표시되고, OOM 없이 답한다. <code>ollama ps</code>에서 GPU 적재 비율과 첫 응답 시간을 함께 기록한다.</p>
                 </li>
 
@@ -2914,7 +2914,7 @@ nanobot onboard --wizard</code></pre>
 
                 <li>
                   <h4>nanobot을 로컬 Ollama 모델에 연결하기</h4>
-                  <p><a href="https://github.com/HKUDS/nanobot/blob/main/docs/provider-cookbook.md" target="_blank" rel="noopener">nanobot provider 안내</a>를 기준으로 <code>config.json</code>의 기존 값은 보존하고 아래 세 구역을 합친다. 모델 이름은 앞에서 내려받은 이름과 글자까지 같아야 한다.</p>
+                  <p><a href="https://github.com/HKUDS/nanobot/blob/main/docs/provider-cookbook.md" target="_blank" rel="noopener">nanobot provider 안내</a>를 기준으로 <code>config.json</code>의 기존 값은 보존하고 아래 구역을 합친다. 모델 이름은 앞에서 내려받은 이름과 글자까지 같아야 한다.</p>
                   <pre><code>{
   "providers": {
     "ollama": {
@@ -2958,14 +2958,14 @@ nanobot agent -m "한 문장으로 현재 연결 상태를 답해 줘."</code></
                 </li>
 
                 <li>
-                  <h4>Slack 앱에서 두 개의 token 만들기</h4>
+                  <h4>Slack 앱에서 token 만들기</h4>
                   <p><a href="https://api.slack.com/apps" target="_blank" rel="noopener">Slack API</a>에서 <span lang="en">From scratch</span>로 앱을 만든다. Socket Mode를 켜고 <code>connections:write</code> scope의 App-Level Token(<code>xapp-…</code>)을 만든다. OAuth &amp; Permissions에는 <code>chat:write</code>, <code>app_mentions:read</code>, <code>channels:history</code>, <code>groups:history</code>, <code>im:history</code>를 추가한다.</p>
                   <p>Event Subscriptions의 bot events에는 <code>message.im</code>, <code>message.channels</code>, <code>app_mention</code>을 넣는다. App Home의 Messages Tab을 켠 뒤 앱을 workspace에 설치하고 Bot Token(<code>xoxb-…</code>)을 복사한다. 파일도 주고받으려면 <code>files:read</code>와 <code>files:write</code>를 추가한 뒤 앱을 다시 설치해야 한다.</p>
                 </li>
 
                 <li>
                   <h4>Slack channel을 nanobot에 제한해서 연결하기</h4>
-                  <p>테스트할 비공개 채널 하나를 만들고 Slack 앱을 초대한다. Slack의 사용자 ID(<code>U…</code>)와 채널 ID(<code>C…</code>)를 복사한 뒤, 기존 <code>config.json</code>의 <code>channels</code> 안에 아래 내용을 합친다. 실제 token을 JSON에 직접 넣지 않고 환경변수를 참조한다.</p>
+                  <p>테스트할 비공개 채널 하나를 만들고 Slack 앱을 초대한다. Slack의 사용자 ID(<code>U…</code>)와 채널 ID(<code>C…</code>)를 복사한 뒤, 기존 <code>config.json</code>의 <code>channels</code> 안에 아래 내용을 합친다. JSON에서는 실제 token 대신 환경변수를 참조한다.</p>
                   <pre><code>{
   "channels": {
     "slack": {
@@ -2987,17 +2987,17 @@ nanobot channels status</code></pre>
                 </li>
 
                 <li>
-                  <h4>gateway를 실행하고 네 가지 동작을 시험하기</h4>
+                  <h4>gateway를 실행하고 동작 시험하기</h4>
                   <p>Slack 연결과 background 작업은 gateway가 맡는다. 앞에서 시험한 것과 같은 vault 경로로 실행하고 이 프로세스를 계속 켜 둔다.</p>
                   <pre><code>nanobot gateway \
   --workspace "/absolute/path/to/robotics-vault"</code></pre>
                   <p>Slack에서 먼저 bot에게 DM을 보내고 테스트 채널에서는 <code>@bot이름</code>을 붙여 질문한다. 이어서 “특정 노트 찾기”, “두 실험 기록 비교하기”, “<code>00-Inbox/</code>에 새 초안 만들기”, “허용하지 않은 채널에서 호출하기”를 차례로 시험한다.</p>
-                  <p class="setup-check"><strong>완료 기준</strong> — DM과 허용 채널에서만 답하고 답에 참고한 노트 경로가 있으며 새 파일은 <code>00-Inbox/</code>에만 만들어진다. Slack 메시지가 오지 않으면 <code>nanobot gateway --verbose</code>에서 token, event scope, 사용자·채널 ID를 순서대로 확인한다.</p>
+                  <p class="setup-check"><strong>통과 기준</strong> — DM과 허용 채널에서만 답하고 답에 참고한 노트 경로가 있으며 새 파일은 <code>00-Inbox/</code>에만 만들어진다. Slack 메시지가 오지 않으면 <code>nanobot gateway --verbose</code>에서 token, event scope, 사용자·채널 ID를 순서대로 확인한다.</p>
                 </li>
 
                 <li>
                   <h4>실제 연구 맥락이 이어지는지 확인하기</h4>
-                  <p>단순한 로보틱스 상식 질문이 아니라, 여러 기록의 차이를 찾아야 답할 수 있는 질문으로 시험한다. 예를 들어 vault에 다음 두 실험 기록이 있다고 하자.</p>
+                  <p>여러 기록의 차이를 찾아야 답할 수 있는 질문으로 시험한다. 예를 들어 vault에 다음 실험 기록이 있다고 하자.</p>
                   <pre><code>Experiments/2026-08-28-corridor.md
 - 회전 구간에서 localization error 증가
 - D455 exposure: 20 ms, IMU time offset: 2 ms 미만
@@ -3009,9 +3009,9 @@ Experiments/2026-08-21-corridor.md
                     <p class="setup-message"><span class="setup-speaker">연구자</span><span><code>@research-bot</code> 8월 28일 복도 주행에서 회전할 때만 localization error가 커진 이유를 찾아줘. 지난 성공 run과 설정도 비교해.</span></p>
                     <p class="setup-message"><span class="setup-speaker">에이전트</span><span>기록에서 가장 먼저 확인할 차이는 camera exposure입니다. 실패 run은 20 ms, 같은 경로의 성공 run은 8 ms였습니다. LiDAR·IMU 설정은 같고 IMU time offset도 2 ms 미만이므로, 현재 기록만으로는 동기화 문제보다 회전 중 motion blur를 먼저 의심하는 편이 타당합니다. 다음 run에서는 exposure만 8 ms로 되돌리고 나머지 설정은 고정하는 것이 좋습니다.<br><strong>근거</strong> — <code>Experiments/2026-08-28-corridor.md</code>, <code>Experiments/2026-08-21-corridor.md</code></span></p>
                     <p class="setup-message"><span class="setup-speaker">연구자</span><span>그 맥락 그대로 재실험 체크리스트를 만들어 줘.</span></p>
-                    <p class="setup-message"><span class="setup-speaker">에이전트</span><span>Exposure를 8 ms로 바꾸는 항목을 유일한 독립변수로 두고, LiDAR·IMU 설정 고정, 같은 경로·속도 재현, 회전 구간 error 비교 순서로 체크리스트를 만들겠습니다. 요청하면 <code>00-Inbox/</code>에 초안으로 저장할 수 있습니다.</span></p>
+                    <p class="setup-message"><span class="setup-speaker">에이전트</span><span>Exposure만 8 ms로 바꾸고, LiDAR·IMU 설정 고정, 같은 경로·속도 재현, 회전 구간 error 비교 순서로 체크리스트를 만들겠습니다. 요청하면 <code>00-Inbox/</code>에 초안으로 저장할 수 있습니다.</span></p>
                   </div>
-                  <p>모델은 답을 새로 꾸미지 않아야 한다. 날짜가 다른 두 기록에서 설정 차이를 찾고, 이어지는 질문에서는 앞선 비교 대상을 다시 적지 않아도 그 맥락을 유지해야 한다.</p>
+                  <p>모델은 기록에 있는 내용만으로 답해야 한다. 날짜가 다른 두 기록에서 설정 차이를 찾고, 이어지는 질문에서는 앞선 비교 대상을 다시 적지 않아도 그 맥락을 유지해야 한다.</p>
                   <p class="setup-check"><strong>완료 기준</strong> — 답변에 실제 노트 경로가 붙고 기록에 있는 사실과 에이전트의 추론이 구분되며 후속 질문에서 앞선 실험과 변경 변수를 그대로 이어 간다.</p>
                 </li>
               </ol>
@@ -3045,7 +3045,7 @@ Experiments/2026-08-21-corridor.md
               <ol class="setup-steps">
                 <li>
                   <h4>Slack에 원문 채널과 선별 채널 만들기</h4>
-                  <p><code>#arxiv-inbox</code>에는 RSS 원문을 빠짐없이 남기고, <code>#arxiv-selected</code>에는 LLM이 고른 논문만 보낸다. 나중에 선별 기준을 바꿀 때 두 채널을 비교하면 놓친 논문이 바로 드러난다.</p>
+                  <p><code>#arxiv-inbox</code>에는 RSS 원문을 빠짐없이 남긴다. <code>#arxiv-selected</code>에는 LLM이 고른 논문만 보낸다. 나중에 선별 기준을 바꿀 때 두 채널을 비교하면 놓친 논문이 바로 드러난다.</p>
                 </li>
 
                 <li>
@@ -3054,13 +3054,13 @@ Experiments/2026-08-21-corridor.md
                   <pre><code>/feed subscribe https://rss.arxiv.org/rss/cs.RO+cs.CV+cs.AI
 /feed list</code></pre>
                   <p>분야 코드는 <a href="https://info.arxiv.org/help/rss.html" target="_blank" rel="noopener">arXiv RSS 안내</a>에 따라 바꾸면 된다. 처음에는 <code>cs.RO</code>만 받아도 된다. 피드가 하루 단위로 갱신되므로 구독하자마자 메시지가 오지 않을 수 있다.</p>
-                  <p class="setup-check"><strong>여기까지 확인</strong> — <code>/feed list</code>에 주소와 채널이 나오고, 다음 갱신 뒤 inbox에 논문 제목과 링크가 들어온다.</p>
+                  <p class="setup-check"><strong>통과 기준</strong> — <code>/feed list</code>에 주소와 채널이 나오고, 다음 갱신 뒤 inbox에 논문 제목과 링크가 들어온다.</p>
                 </li>
 
                 <li>
                   <h4>선별 채널의 Incoming Webhook 만들기</h4>
                   <p><a href="https://api.slack.com/messaging/webhooks" target="_blank" rel="noopener">Slack Incoming Webhooks</a> 안내대로 앱을 하나 만들고 <span lang="en">Incoming Webhooks</span>를 켠다. <span lang="en">Add New Webhook to Workspace</span>에서 <code>#arxiv-selected</code>를 고르면 <code>https://hooks.slack.com/services/…</code> 형식의 URL이 나온다. 이 URL은 채널에 메시지를 쓸 수 있는 비밀값이므로 코드나 공개 저장소에 넣지 않는다.</p>
-                  <p class="setup-check"><strong>여기까지 확인</strong> — webhook 설정 화면의 예제 <code>curl</code>을 실행했을 때 <code>#arxiv-selected</code>에 테스트 문장이 온다.</p>
+                  <p class="setup-check"><strong>통과 기준</strong> — webhook 설정 화면의 예제 <code>curl</code>을 실행했을 때 <code>#arxiv-selected</code>에 테스트 문장이 온다.</p>
                 </li>
 
                 <li>
@@ -3091,7 +3091,7 @@ RESEARCH_PROFILE   아래 선별 기준 전체</code></pre>
 
                 <li>
                   <h4>RSS를 읽고 LLM API로 보내는 코드 붙여 넣기</h4>
-                  <p><code>Code.gs</code>를 아래 코드로 바꾼다. Apps Script는 새 RSS 항목만 API에 보낸다. Slack 게시에 성공하면 arXiv ID를 Script Properties에 기록한다. token은 코드가 아니라 앞에서 만든 속성에서 읽는다.</p>
+                  <p><code>Code.gs</code>를 아래 코드로 바꾼다. Apps Script는 새 RSS 항목만 API에 보낸다. Slack 게시에 성공하면 arXiv ID를 Script Properties에 기록한다. token은 앞에서 만든 속성에서 읽는다.</p>
                   <pre><code>function collectArxiv() {
   const store = PropertiesService.getScriptProperties();
   const p = store.getProperties();
@@ -3154,7 +3154,7 @@ function arxivId_(url) {
   const match = url.match(/\/abs\/([^?#]+)/);
   return match ? match[1] : url;
 }</code></pre>
-                  <p class="setup-note"><strong>API 형식이 다를 때</strong> — endpoint와 token을 넣었는데 4xx 오류가 나면 <code>callLlm_()</code>의 header, body, 응답 한 줄만 해당 서비스 문서에 맞춘다. RSS 수집과 Slack 전송 코드는 바꿀 필요가 없다.</p>
+                  <p class="setup-note"><strong>API 형식이 다를 때</strong> — endpoint와 token을 넣었는데 4xx 오류가 나면 <code>callLlm_()</code>의 header, body, 응답 한 줄만 해당 서비스 문서에 맞춘다. RSS 수집과 Slack 전송 코드는 그대로 둔다.</p>
                 </li>
 
                 <li>
@@ -3230,19 +3230,19 @@ export SLACK_WEBHOOK_URL='https://hooks.slack.com/services/...'
 exec .venv/bin/python arxiv_local.py</code></pre>
                   <p>Linux에서는 <code>crontab -e</code>에 아래처럼 등록한다. macOS에서는 같은 스크립트를 <code>launchd</code>로 매일 실행해도 된다.</p>
                   <pre><code>0 9 * * 1-5 /absolute/path/arxiv-filter/run-local.sh &gt;&gt; /absolute/path/arxiv-filter/arxiv.log 2&gt;&amp;1</code></pre>
-                  <p class="setup-check"><strong>여기까지 확인</strong> — <code>ollama ps</code>에 선별 모델이 올라오고, <code>#arxiv-selected</code>에 결과가 오며, 두 번째 실행에서는 같은 논문이 다시 올라오지 않는다.</p>
+                  <p class="setup-check"><strong>통과 기준</strong> — <code>ollama ps</code>에 선별 모델이 올라오고, <code>#arxiv-selected</code>에 결과가 오며, 두 번째 실행에서는 같은 논문이 다시 올라오지 않는다.</p>
                 </li>
 
                 <li>
                   <h4>API를 쓴다면 Apps Script를 한 번 직접 실행하기</h4>
                   <p>함수 목록에서 <code>collectArxiv</code>를 선택해 실행한다. 첫 실행에는 외부 요청 권한 승인이 필요하다. <span lang="en">Execution log</span>에 오류가 없고 <code>#arxiv-selected</code>에 결과가 오면 API 호출과 Slack 전송이 모두 연결됐다.</p>
-                  <p class="setup-check"><strong>여기까지 확인</strong> — 선택된 논문마다 제목, URL, 선택 이유가 있고 초록에 없는 실험 결과나 수치가 붙지 않는다. API와 로컬 방식 모두 다시 실행했을 때 이미 처리한 논문이 반복해서 올라오지 않아야 한다.</p>
+                  <p class="setup-check"><strong>통과 기준</strong> — 선택된 논문마다 제목, URL, 선택 이유가 있고 초록에 없는 실험 결과나 수치가 붙지 않는다. API와 로컬 방식 모두 다시 실행하면 이미 처리한 논문이 다시 올라오지 않아야 한다.</p>
                 </li>
 
                 <li>
                   <h4>API를 쓴다면 매일 실행할 트리거 만들기</h4>
-                  <p>Project Settings에서 time zone을 <code>Asia/Seoul</code>로 바꾼다. 왼쪽의 <span lang="en">Triggers</span>에서 <code>collectArxiv</code>를 선택하고 <span lang="en">Time-driven → Day timer → 9am to 10am</span>으로 저장한다. Apps Script의 일일 트리거는 정각이 아니라 선택한 한 시간 안에서 실행된다.</p>
-                  <p class="setup-check"><strong>여기까지 확인</strong> — 트리거 목록에 <code>collectArxiv</code>와 다음 실행 시간이 보인다. 다음 날 결과가 오지 않으면 <span lang="en">Executions</span>에서 API 응답 코드와 webhook 오류부터 확인한다.</p>
+                  <p>Project Settings에서 time zone을 <code>Asia/Seoul</code>로 바꾼다. 왼쪽의 <span lang="en">Triggers</span>에서 <code>collectArxiv</code>를 선택하고 <span lang="en">Time-driven → Day timer → 9am to 10am</span>으로 저장한다. Apps Script의 일일 트리거는 선택한 한 시간 범위 안의 임의 시각에 실행된다.</p>
+                  <p class="setup-check"><strong>통과 기준</strong> — 트리거 목록에 <code>collectArxiv</code>와 다음 실행 시간이 보인다. 다음 날 결과가 오지 않으면 <span lang="en">Executions</span>에서 API 응답 코드와 webhook 오류부터 확인한다.</p>
                 </li>
 
                 <li>
