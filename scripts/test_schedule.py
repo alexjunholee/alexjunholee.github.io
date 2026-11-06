@@ -1,6 +1,10 @@
 import json
+import subprocess
+import sys
+import tempfile
 import unittest
 from datetime import datetime, timezone
+from pathlib import Path
 from update_schedule import build_availability, build_schedule
 
 NOW = datetime(2026, 9, 25, 12, tzinfo=timezone.utc)
@@ -46,6 +50,23 @@ class AvailabilityTests(unittest.TestCase):
         for raw in ('<html>Error</html>', calendar('DTSTART:20260925T040000Z'), calendar('DTSTART:20260925T040000Z\nDTEND:20260925T080000Z\nRRULE:FREQ=WEEKLY')):
             with self.assertRaises(ValueError):
                 build_availability(raw, NOW)
+
+    def test_failed_cli_refresh_preserves_previous_snapshot_byte_for_byte(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            output = root / 'schedule.json'
+            previous = b'{"generatedAt":"2026-09-25T12:00:00Z","busy":[]}\n'
+            output.write_bytes(previous)
+            raw = root / 'calendar.ics'
+            holidays = root / 'holidays.ics'
+            raw.write_text('<html>upstream error</html>')
+            holidays.write_text(calendar())
+            result = subprocess.run([sys.executable, str(Path(__file__).with_name('update_schedule.py')),
+                                     '--input', str(raw), '--holidays-input', str(holidays),
+                                     '--output', str(output)], capture_output=True)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertEqual(output.read_bytes(), previous)
+            self.assertFalse(output.with_name('schedule.json.tmp').exists())
 
 if __name__ == '__main__':
     unittest.main()

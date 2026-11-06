@@ -17,11 +17,21 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+      - uses: actions/checkout@v6
+        with:
+          ref: schedule-data
+          path: _availability
+      - name: Check availability handling
+        run: |
+          python -m unittest discover -s scripts -p 'test_schedule.py'
+          node scripts/test_schedule_ui.cjs
       - name: Build public site
         run: |
           mkdir -p _site
@@ -29,7 +39,20 @@ jobs:
           cp -R assets _site/assets
           if [ -f CNAME ]; then cp CNAME _site/CNAME; fi
           touch _site/.nojekyll
-          python scripts/update_schedule.py --output _site/schedule.json
+          cp _availability/schedule.json _site/schedule.json
+          if ! python scripts/update_schedule.py --output _site/schedule.json; then
+            echo '::warning::Calendar refresh failed; retaining the last successful availability snapshot.'
+          fi
+      - name: Publish time-only availability
+        run: |
+          cp _site/schedule.json _availability/schedule.json
+          git -C _availability config user.name 'github-actions[bot]'
+          git -C _availability config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C _availability add schedule.json
+          if ! git -C _availability diff --cached --quiet; then
+            git -C _availability commit -m 'Refresh public availability'
+            git -C _availability push origin HEAD:schedule-data
+          fi
       - uses: actions/upload-pages-artifact@v4
         with:
           path: _site

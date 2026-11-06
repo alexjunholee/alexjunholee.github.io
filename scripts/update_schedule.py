@@ -79,5 +79,8 @@ if __name__ == '__main__':
     holidays = args.holidays_input.read_text() if args.holidays_input else read_feed(HOLIDAY_FEED)
     data = build_schedule(raw, holidays, datetime.now(timezone.utc))
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n')
+    # Replace the last successful snapshot only after the complete file is written.
+    temporary = args.output.with_name(args.output.name + '.tmp')
+    temporary.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n')
+    temporary.replace(args.output)
     print('Updated public availability: %d intervals' % len(data['busy']))
