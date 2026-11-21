@@ -204,6 +204,14 @@ h1, h2, h3, h4 {
   line-height: 1.1;
   letter-spacing: -0.025em;
 }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 /* Hero */
 .hero {
   display: flex;
@@ -2650,9 +2658,7 @@ section:last-of-type { margin-bottom: 0; }
     </div>
 
     <div class="sprint-subpage" data-sprint-page="projects" hidden>
-      <header class="sprint-subpage-heading">
-        <h1>Projects</h1>
-      </header>
+      <h1 class="visually-hidden">Projects</h1>
 
     <section class="sprint-project-group" aria-labelledby="original-research-title">
       <h2 class="sprint-section-title" id="original-research-title">Original Research</h2>
