@@ -1248,12 +1248,10 @@ section:last-of-type { margin-bottom: 0; }
   padding-bottom: 12px;
   border-bottom: 1px solid var(--border);
 }
-.sprint-section-title--projects { margin-top: 66px; }
-.side-projects {
-  margin-top: 78px;
-  margin-bottom: 0;
-}
-.side-projects > .sprint-section-title { margin-bottom: 18px; }
+.sprint-project-group { margin-bottom: 0; }
+.sprint-project-group + .sprint-project-group { margin-top: 66px; }
+.sprint-project-group > .sprint-section-title { margin-bottom: 18px; }
+.sprint-project-group > .sprint-list { border-top: 0; }
 .side-project-list {
   display: grid;
   gap: 16px;
@@ -1948,8 +1946,7 @@ section:last-of-type { margin-bottom: 0; }
     object-fit: contain;
   }
   .sprint-section-title { font-size: 24px; }
-  .sprint-section-title--projects { margin-top: 52px; }
-  .side-projects { margin-top: 60px; }
+  .sprint-project-group + .sprint-project-group { margin-top: 52px; }
   .side-project {
     padding: 22px 20px 23px;
     border-radius: 16px;
@@ -2657,98 +2654,101 @@ section:last-of-type { margin-bottom: 0; }
         <h1>Projects</h1>
       </header>
 
-    <section class="sprint-category" id="sprint-navigation">
-      <h3 class="sprint-category-title">Navigation</h3>
-      <div class="sprint-list">
-        <article class="sprint-entry">
-          <figure class="sprint-figure">
-            <img src="assets/extreme-localization.jpg" alt="극한 환경에서 취득한 점군 지도와 이동 궤적" loading="lazy">
-          </figure>
-          <div class="sprint-body">
-            <div class="sprint-kicker">2026</div>
-            <h4 class="pub-title">극한 환경에서 강건한 위치인식</h4>
-            <dl class="sprint-people">
-              <dt>Participants</dt><dd>김민서, 김인아, 황진화</dd>
-              <dt>Paper</dt><dd>To be submitted to ICRA 2027</dd>
-            </dl>
-          </div>
-        </article>
-        <article class="sprint-entry sprint-entry--gallery">
-          <figure class="sprint-figure sprint-gallery sprint-gallery--navigation" aria-label="Any-robot Navigation 실험 자료">
-            <img src="assets/any-robot-platform.jpg" alt="카메라를 장착한 사족보행 로봇" loading="lazy">
-            <img src="assets/any-robot-camera-grid.jpg" alt="카메라 영상과 2D 점유 격자의 대응 화면" loading="lazy">
-            <img src="assets/any-robot-cart.jpg" alt="이동식 카트의 3차원 인식과 주행 화면" loading="lazy">
-          </figure>
-          <div class="sprint-body">
-            <div class="sprint-kicker">2025</div>
-            <h4 class="pub-title">(모든 로봇에 대한) 사전 정보 없는 길찾기 연구</h4>
-            <dl class="sprint-people">
-              <dt>Participants</dt><dd>김인아, 김홍준, 김수지, 김민서, 윤채현</dd>
-              <dt>Detail</dt><dd>Unitree Go2 (Quadruped), Stella N2 (Wheeled), UGOT (Multi-form)</dd>
-              <dt>Paper</dt><dd>“Cross-Modal Optimization on the Special Linear Group for Camera-Based Localization and Mapping in 2D Occupancy Grids,” <em>International Journal of Control, Automation, and Systems (IJCAS)</em>, 2026</dd>
-            </dl>
-          </div>
-        </article>
-      </div>
+    <section class="sprint-project-group" aria-labelledby="original-research-title">
+      <h2 class="sprint-section-title" id="original-research-title">Original Research</h2>
+      <section class="sprint-category" id="sprint-navigation">
+        <h3 class="sprint-category-title">Navigation</h3>
+        <div class="sprint-list">
+          <article class="sprint-entry">
+            <figure class="sprint-figure">
+              <img src="assets/extreme-localization.jpg" alt="극한 환경에서 취득한 점군 지도와 이동 궤적" loading="lazy">
+            </figure>
+            <div class="sprint-body">
+              <div class="sprint-kicker">2026</div>
+              <h4 class="pub-title">극한 환경에서 강건한 위치인식</h4>
+              <dl class="sprint-people">
+                <dt>Participants</dt><dd>김민서, 김인아, 황진화</dd>
+                <dt>Paper</dt><dd>To be submitted to ICRA 2027</dd>
+              </dl>
+            </div>
+          </article>
+          <article class="sprint-entry sprint-entry--gallery">
+            <figure class="sprint-figure sprint-gallery sprint-gallery--navigation" aria-label="Any-robot Navigation 실험 자료">
+              <img src="assets/any-robot-platform.jpg" alt="카메라를 장착한 사족보행 로봇" loading="lazy">
+              <img src="assets/any-robot-camera-grid.jpg" alt="카메라 영상과 2D 점유 격자의 대응 화면" loading="lazy">
+              <img src="assets/any-robot-cart.jpg" alt="이동식 카트의 3차원 인식과 주행 화면" loading="lazy">
+            </figure>
+            <div class="sprint-body">
+              <div class="sprint-kicker">2025</div>
+              <h4 class="pub-title">(모든 로봇에 대한) 사전 정보 없는 길찾기 연구</h4>
+              <dl class="sprint-people">
+                <dt>Participants</dt><dd>김인아, 김홍준, 김수지, 김민서, 윤채현</dd>
+                <dt>Detail</dt><dd>Unitree Go2 (Quadruped), Stella N2 (Wheeled), UGOT (Multi-form)</dd>
+                <dt>Paper</dt><dd>“Cross-Modal Optimization on the Special Linear Group for Camera-Based Localization and Mapping in 2D Occupancy Grids,” <em>International Journal of Control, Automation, and Systems (IJCAS)</em>, 2026</dd>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="sprint-category" id="sprint-mapping">
+        <h3 class="sprint-category-title">Mapping</h3>
+        <div class="sprint-list">
+          <article class="sprint-entry sprint-entry--gallery">
+            <figure class="sprint-figure sprint-gallery sprint-gallery--mapping" aria-label="Portable 3D Mapping Device 개발 자료">
+              <img src="assets/portable-mapping-sensor-assembly.jpg" alt="카메라와 센서를 결합한 휴대용 3D 매핑 장비" loading="lazy">
+              <img src="assets/portable-mapping-cad.jpg" alt="Portable 3D Mapping Device CAD 모델" loading="lazy">
+              <img src="assets/portable-mapping-architecture.jpg" alt="Portable 3D Mapping Device 시스템 구성" loading="lazy">
+              <img src="assets/portable-mapping-interface.jpg" alt="Portable 3D Mapping Device 기록 인터페이스" loading="lazy">
+            </figure>
+            <div class="sprint-body">
+              <div class="sprint-kicker">2025</div>
+              <h4 class="pub-title">초소형 일체형 정밀 매핑장비 제작</h4>
+              <dl class="sprint-people">
+                <dt>Participants</dt><dd>윤유리, 김수지, 황진화</dd>
+                <dt>Paper</dt><dd>To be submitted to SCIE Journal</dd>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="sprint-category" id="sprint-spatial-ai">
+        <h3 class="sprint-category-title">Spatial AI</h3>
+        <div class="sprint-list">
+          <article class="sprint-entry">
+            <figure class="sprint-figure">
+              <img src="assets/uncertainty-knowability.jpg" alt="두 환경에서 관측한 점군 지도" loading="lazy">
+            </figure>
+            <div class="sprint-body">
+              <div class="sprint-kicker">2025</div>
+              <h4 class="pub-title">불확실성 속에서의 인식 가능성 연구</h4>
+              <dl class="sprint-people">
+                <dt>Participant</dt><dd>윤유리</dd>
+                <dt>Paper</dt>
+                <dd class="sprint-citations">
+                  <span>“동적 환경에서의 강인한 점군 정합을 위한 시맨틱 기반 불확실성 모델링,” <em>한국로봇종합학술대회</em>, 2026</span>
+                  <span>“언어 기반 네비게이션에서의 불확실성 재고,” <em>Journal of Korea Robotics Society</em>, vol. 21, no. 2, pp. 158–163, 2026</span>
+                </dd>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </section>
     </section>
 
-    <section class="sprint-category" id="sprint-mapping">
-      <h3 class="sprint-category-title">Mapping</h3>
-      <div class="sprint-list">
-        <article class="sprint-entry sprint-entry--gallery">
-          <figure class="sprint-figure sprint-gallery sprint-gallery--mapping" aria-label="Portable 3D Mapping Device 개발 자료">
-            <img src="assets/portable-mapping-sensor-assembly.jpg" alt="카메라와 센서를 결합한 휴대용 3D 매핑 장비" loading="lazy">
-            <img src="assets/portable-mapping-cad.jpg" alt="Portable 3D Mapping Device CAD 모델" loading="lazy">
-            <img src="assets/portable-mapping-architecture.jpg" alt="Portable 3D Mapping Device 시스템 구성" loading="lazy">
-            <img src="assets/portable-mapping-interface.jpg" alt="Portable 3D Mapping Device 기록 인터페이스" loading="lazy">
-          </figure>
-          <div class="sprint-body">
-            <div class="sprint-kicker">2025</div>
-            <h4 class="pub-title">초소형 일체형 정밀 매핑장비 제작</h4>
-            <dl class="sprint-people">
-              <dt>Participants</dt><dd>윤유리, 김수지, 황진화</dd>
-              <dt>Paper</dt><dd>To be submitted to SCIE Journal</dd>
-            </dl>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="sprint-category" id="sprint-spatial-ai">
-      <h3 class="sprint-category-title">Spatial AI</h3>
-      <div class="sprint-list">
-        <article class="sprint-entry">
-          <figure class="sprint-figure">
-            <img src="assets/uncertainty-knowability.jpg" alt="두 환경에서 관측한 점군 지도" loading="lazy">
-          </figure>
-          <div class="sprint-body">
-            <div class="sprint-kicker">2025</div>
-            <h4 class="pub-title">불확실성 속에서의 인식 가능성 연구</h4>
-            <dl class="sprint-people">
-              <dt>Participant</dt><dd>윤유리</dd>
-              <dt>Paper</dt>
-              <dd class="sprint-citations">
-                <span>“동적 환경에서의 강인한 점군 정합을 위한 시맨틱 기반 불확실성 모델링,” <em>한국로봇종합학술대회</em>, 2026</span>
-                <span>“언어 기반 네비게이션에서의 불확실성 재고,” <em>Journal of Korea Robotics Society</em>, vol. 21, no. 2, pp. 158–163, 2026</span>
-              </dd>
-            </dl>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="sprint-category" id="sprint-challenges">
-      <h3 class="sprint-category-title">Challenges</h3>
+    <section class="sprint-project-group" id="sprint-challenges" aria-labelledby="challenges-title">
+      <h2 class="sprint-section-title" id="challenges-title">Challenges</h2>
       <div class="sprint-list">
         <article class="sprint-entry">
           <figure class="sprint-figure sprint-figure--contain">
             <a href="assets/hilti-trimble-slam-challenge-2026.png" target="_blank" rel="noopener">
-              <img src="assets/hilti-trimble-slam-challenge-2026.png" alt="Hilti × Trimble SLAM Challenge 2026 Localization leaderboard showing SPRINT in first place (open full-size image)" loading="lazy">
+              <img src="assets/hilti-trimble-slam-challenge-2026.png" alt="Hilti SLAM Challenge 2026 Localization leaderboard showing SPRINT in first place (open full-size image)" loading="lazy">
             </a>
           </figure>
           <div class="sprint-body">
             <div class="sprint-kicker">2026</div>
-            <h4 class="pub-title">Hilti × Trimble SLAM Challenge</h4>
+            <h3 class="pub-title">Hilti SLAM Challenge</h3>
             <dl class="sprint-people">
               <dt>Detail</dt><dd>Localization — 1st place (22 Nov. 2026)</dd>
             </dl>
@@ -2760,7 +2760,7 @@ section:last-of-type { margin-bottom: 0; }
           </figure>
           <div class="sprint-body">
             <div class="sprint-kicker">2026</div>
-            <h4 class="pub-title">ROBORACER 자율주행 레이싱 대회</h4>
+            <h3 class="pub-title">ROBORACER 자율주행 레이싱 대회</h3>
             <dl class="sprint-people">
               <dt>Participants</dt><dd>윤채현, 김지현</dd>
               <dt>Result</dt><dd>Finalist (15th out of 55 teams in qualifying)</dd>
@@ -2770,8 +2770,8 @@ section:last-of-type { margin-bottom: 0; }
       </div>
     </section>
 
-    <section class="side-projects" aria-labelledby="side-projects-title">
-      <h2 class="sprint-section-title" id="side-projects-title">Side Projects</h2>
+    <section class="sprint-project-group" aria-labelledby="engineering-title">
+      <h2 class="sprint-section-title" id="engineering-title">Engineering</h2>
 
       <div class="side-project-list">
         <article class="side-project">
