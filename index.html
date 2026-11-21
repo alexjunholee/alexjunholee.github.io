@@ -2475,33 +2475,33 @@ section:last-of-type { margin-bottom: 0; }
       </header>
       <section class="sprint-research-outline" aria-labelledby="sprint-research-title">
         <div class="sprint-research-intro">
-          <span class="sprint-research-kicker">Research Questions</span>
-          <h2>로봇 인식 연구는 앞으로<br class="sprint-research-break"> 어떤 질문에 답해야 할까?</h2>
-          <p class="sprint-research-lede">지금 진행 중인 프로젝트들은 로봇이 센서로 포착한 장면을 어디까지 믿을 수 있는지,<br class="sprint-research-break"> 그리고 부족한 정보를 언제 어떻게 채워 넣어야 하는지를 묻습니다.</p>
+          <span class="sprint-research-kicker">Research Focus</span>
+          <h2>관측의 한계를 아는<br class="sprint-research-break"> 로봇 공간지능 연구</h2>
+          <p class="sprint-research-lede">어둠이나 연기, 움직이는 장애물이 많은 실제 현장에서는 센서 데이터가 불완전하거나 서로 어긋나기 쉽습니다. SPRINT Lab은 악조건에서도 로봇의 위치와 주변 공간을 정확히 추정하고, 지금 가진 정보만으로 판단할 수 있는지 아니면 더 관측해야 하는지 스스로 가늠하는 기술을 연구합니다.</p>
         </div>
 
         <div class="sprint-research-axes" aria-label="Research directions">
           <section class="sprint-research-axis">
             <div class="sprint-research-axis-heading">
               <h3>Spatial AI for Robots</h3>
-              <p>센서 관측을 위치 추정, 지도 작성, 장소 인식과 행동 판단에 곧바로 쓰이는 공간 정보로 바꾸는 연구입니다.</p>
+              <p>카메라·LiDAR·IMU 등 여러 센서의 관측값을 위치 추정, 3차원 지도 작성, 장소 인식, 경로 계획에 바로 쓸 수 있는 공간 정보로 바꿉니다.</p>
             </div>
             <div class="sprint-research-axis-questions">
-              <p>여러 센서가 서로 다른 단서를 줄 때,<br class="sprint-research-break"> 로봇은 무엇을 신뢰하고 무엇을 아직 불확실한 정보로 남겨 두어야 할까?</p>
-              <p>위치·지도·장소·행동 판단은<br class="sprint-research-break"> 어떤 근거가 모였을 때 비로소 믿고 맡길 수 있을까?</p>
-              <p>센서와 시점, 환경과 시간이 달라져도<br class="sprint-research-break"> 같은 장면과 장소를 어떻게 변함없이 알아볼 수 있을까?</p>
+              <p>어둠이나 연기, 움직이는 물체로 일부 센서 정보가 훼손될 때, 다른 센서와 관성 측정값을 어떻게 조합해야 위치 추정이 무너지지 않을까?</p>
+              <p>특징이 적은 복도나 사전 3D 지도 없는 2차원 평면도 환경에서도, 카메라와 LiDAR 관측을 정확히 정렬해 주행할 수 있을까?</p>
+              <p>계절·조명·날씨가 바뀌거나 로봇마다 센서 배치와 시점이 달라도, 같은 장소를 정확히 다시 찾아낼 수 있을까?</p>
             </div>
           </section>
 
           <section class="sprint-research-axis">
             <div class="sprint-research-axis-heading">
               <h3>Situated Knowability</h3>
-              <p>로봇이 지금 놓인 조건에서 어디까지 알 수 있는지, 다음에 무엇을 더 확인해야 하는지를 다룹니다.</p>
+              <p>로봇이 현재 위치와 센서·연산 자원의 한계 안에서 무엇을 확실히 알 수 있고, 무엇을 더 확인해야 하는지 판단하는 기준을 연구합니다.</p>
             </div>
             <div class="sprint-research-axis-questions">
-              <p>위치와 지도를 추정하는 일을 넘어<br class="sprint-research-break"> 실제 현장 상황의 판단까지 신뢰할 수 있으려면 무엇이 필요할까?</p>
-              <p>로봇이 지금 알 수 있는 범위는 어디까지이고,<br class="sprint-research-break"> 그 범위를 넓히려면 무엇을 더 관측해야 할까?</p>
-              <p>오래 축적하거나 여러 로봇이 함께 쓰는 공간 지식은<br class="sprint-research-break"> 언제 다시 점검하고 어떻게 갱신·공유해야 할까?</p>
+              <p>지금 들어온 관측만으로 위치·경로·주변 상황 판단을 확정할 수 있는지, 아니면 특징 부족이나 가림·모호함 때문에 불확실성이 남아 있는지 어떻게 판별할까?</p>
+              <p>불확실성이 클 때 정해진 시간과 배터리·연산 한도 안에서 시점을 옮겨 다시 볼지, 다른 센서를 쓸지, 추가 계산을 할지 어떻게 결정할까?</p>
+              <p>환경이 변하거나 여러 로봇이 지도를 함께 쓸 때, 기존 공간 정보 중 그대로 믿을 부분과 다시 관측해 고칠 부분을 어떻게 구분할까?</p>
             </div>
           </section>
         </div>
@@ -2509,8 +2509,8 @@ section:last-of-type { margin-bottom: 0; }
         <div class="sprint-research-connections">
           <div class="sprint-research-connections-heading">
             <span class="sprint-research-kicker">From Projects to Questions</span>
-            <h3>프로젝트에서 출발한 연구 질문</h3>
-            <p>현재 연구는 크게 Navigation, Mapping, Spatial AI 세 갈래로 이어집니다.</p>
+            <h3>프로젝트와 연결된 연구 문제</h3>
+            <p>현재 연구는 Navigation, Mapping, Spatial AI 세 갈래 프로젝트로 이어집니다.</p>
           </div>
           <div class="sprint-research-connection-list">
             <article class="sprint-research-connection-row">
@@ -2518,13 +2518,13 @@ section:last-of-type { margin-bottom: 0; }
                 <h4>Navigation</h4>
                 <ul class="sprint-research-connection-projects">
                   <li>극한 환경에서 강건한 위치인식</li>
-                  <li>ROBORACER 자율주행 레이싱</li>
                   <li>(모든 로봇에 대한) 사전 정보 없는 길찾기</li>
+                  <li>Hilti SLAM · ROBORACER 챌린지</li>
                 </ul>
               </div>
               <div class="sprint-research-connection-copy">
-                <p class="sprint-research-connection-question"><strong>Spatial AI for Robots</strong>센서와 로봇, 환경이 달라져도<br class="sprint-research-break"> 위치를 찾고 안전하게 움직이려면 무엇을 믿고 판단해야 할까?</p>
-                <p class="sprint-research-connection-question"><strong>Situated Knowability</strong>현재 관측만으로 위치와 경로를 정하기 어렵다면<br class="sprint-research-break"> 무엇을 더 확인해야 할까?</p>
+                <p class="sprint-research-connection-question"><strong>Spatial AI for Robots</strong>카메라·LiDAR·IMU만으로 2차원 평면도 위 위치를 맞추고, 사족·바퀴 등 로봇 형태나 고속·악천후 조건이 바뀌어도 무너지지 않는 주행 인지 기술을 만듭니다.</p>
+                <p class="sprint-research-connection-question"><strong>Situated Knowability</strong>현재 센서 입력만으로 위치나 주행 경로를 정하기 어려운 구간(특징 없는 복도, 연기·가림 등)을 스스로 감지하고, 멈추거나 시점을 바꿔 추가 단서를 확보하는 기준을 찾습니다.</p>
               </div>
             </article>
             <article class="sprint-research-connection-row">
@@ -2535,8 +2535,8 @@ section:last-of-type { margin-bottom: 0; }
                 </ul>
               </div>
               <div class="sprint-research-connection-copy">
-                <p class="sprint-research-connection-question"><strong>Spatial AI for Robots</strong>여러 센서로 얻은 관측을<br class="sprint-research-break"> 하나의 정밀한 공간 정보로 어떻게 묶어 낼 수 있을까?</p>
-                <p class="sprint-research-connection-question"><strong>Situated Knowability</strong>만든 지도를 어디까지 믿을 수 있고,<br class="sprint-research-break"> 언제 다시 확인하거나 고쳐야 할까?</p>
+                <p class="sprint-research-connection-question"><strong>Spatial AI for Robots</strong>휴대용 소형 장비 안의 여러 센서를 정밀하게 보정·동기화해, 걸어가는 것만으로 3차원 정밀 지도를 만드는 시스템을 구축합니다.</p>
+                <p class="sprint-research-connection-question"><strong>Situated Knowability</strong>생성한 지도에서 관측이 부족해 오차가 큰 구역이나 시간이 지나 달라진 영역을 가려내고, 어느 지점을 다시 스캔해야 지도 품질이 올라가는지 판단합니다.</p>
               </div>
             </article>
             <article class="sprint-research-connection-row">
@@ -2547,8 +2547,8 @@ section:last-of-type { margin-bottom: 0; }
                 </ul>
               </div>
               <div class="sprint-research-connection-copy">
-                <p class="sprint-research-connection-question"><strong>Spatial AI for Robots</strong>움직이는 물체와 모호한 지시가 섞인 장면에서<br class="sprint-research-break"> 어디까지를 확실한 근거로 삼을 수 있을까?</p>
-                <p class="sprint-research-connection-question"><strong>Situated Knowability</strong>로봇이 알 수 있는 범위를 넓히려면<br class="sprint-research-break"> 어디로 움직이고 무엇을 다시 봐야 할까?</p>
+                <p class="sprint-research-connection-question"><strong>Spatial AI for Robots</strong>움직이는 물체가 많거나 자연어 주행 지시가 모호한 환경에서, 의미 정보(semantics)와 기하 구조를 결합해 정합과 장면 이해의 안정성을 높입니다.</p>
+                <p class="sprint-research-connection-question"><strong>Situated Knowability</strong>로봇이 해석한 장면이나 언어 명령을 그대로 믿고 실행해도 되는지, 아니면 이동해 다시 확인하거나 되물어야 하는지 판단하는 불확실성 기준을 정의합니다.</p>
               </div>
             </article>
           </div>
